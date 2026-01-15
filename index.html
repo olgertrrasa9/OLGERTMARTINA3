@@ -18,7 +18,7 @@
       font-family: 'Montserrat', sans-serif;
     }
 
-    /* HEADER COMPATTO */
+    /* HEADER */
     header {
       padding: 80px 20px 40px;
       text-align: center;
@@ -67,7 +67,7 @@
     .intro-text {
       text-align: center;
       font-style: italic;
-      max-width: 700px;
+      max-width: 750px;
       margin: 0 auto 30px;
       line-height: 1.6;
     }
@@ -79,7 +79,7 @@
       margin: 0 auto 35px;
     }
 
-    /* FOTO PRINCIPALE LIMITATA */
+    /* IMMAGINI */
     .story img {
       width: 100%;
       max-width: 420px;
@@ -125,6 +125,30 @@
       margin-top: 8px;
     }
 
+    .countdown {
+      font-size: 1.8rem;
+      margin-top: 20px;
+    }
+
+    .whatsapp a {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 35px;
+      background: #25D366;
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    iframe {
+      width: 100%;
+      height: 420px;
+      border: 0;
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
     footer {
       text-align: center;
       padding: 50px 20px;
@@ -149,6 +173,7 @@
   <h1>Olgert & Martina</h1>
 </header>
 
+<!-- INTRO -->
 <section>
   <div class="container">
     <p id="intro" class="intro-text">
@@ -164,6 +189,7 @@
   </div>
 </section>
 
+<!-- CERIMONIA & RICEVIMENTO -->
 <section>
   <div class="container">
     <div class="section-title">
@@ -173,8 +199,8 @@
     <div class="hotels">
       <div class="card">
         <h3 id="ceremonyLabel">Cerimonia</h3>
-        <div class="big-date" id="ceremonyDate">Sabato 25 Aprile</div>
-        <div class="big-time" id="ceremonyTime">Ore 11:00</div>
+        <div id="ceremonyDate" class="big-date">Sabato 25 Aprile</div>
+        <div id="ceremonyTime" class="big-time">Ore 11:00</div>
       </div>
 
       <div class="card hotel">
@@ -185,6 +211,7 @@
   </div>
 </section>
 
+<!-- STRUTTURE -->
 <section>
   <div class="container">
     <div class="section-title">
@@ -212,11 +239,61 @@
   </div>
 </section>
 
+<!-- COME ARRIVARE -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2 id="arrivalTitle">Come arrivare</h2>
+    </div>
+
+    <p id="arrivalText" class="intro-text">
+      Katalea Palace si trova a circa 35 minuti da Tirana.
+      Facilmente raggiungibile in auto lungo la strada E853.
+      Ampio parcheggio disponibile in struttura.
+    </p>
+
+    <iframe
+      src="https://www.google.com/maps?q=Katalea+Palace+Fier&output=embed"
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section>
+  <div class="container" style="text-align:center;">
+    <div class="section-title">
+      <h2 id="rsvpTitle">Conferma presenza</h2>
+    </div>
+
+    <div id="countdown" class="countdown"></div>
+
+    <div class="whatsapp">
+      <a href="https://wa.me/393297544593" target="_blank">
+        Scrivici su WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
 <footer>
   <p id="footerText">Con amore, Olgert & Martina</p>
 </footer>
 
 <script>
+  /* COUNTDOWN */
+  const weddingDate = new Date("2026-04-25T11:00:00");
+  setInterval(() => {
+    const now = new Date();
+    const diff = weddingDate - now;
+    if (diff > 0) {
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById("countdown").innerHTML =
+        "<strong>" + days + "</strong><br>giorni al nostro sì";
+    }
+  }, 1000);
+
+  /* LINGUE */
   function setLang(lang) {
     if (lang === "sq") {
       document.getElementById("intro").innerText =
@@ -236,6 +313,12 @@
         "Për rezervim, mjafton të na shkruani duke treguar " +
         "numrin e dhomave dhe netëve.<br><br>" +
         "<strong>Pagesa bëhet në check-in – 30 € për natë.</strong>";
+      document.getElementById("arrivalTitle").innerText =
+        "Si të mbërrini";
+      document.getElementById("arrivalText").innerText =
+        "Katalea Palace ndodhet rreth 35 minuta nga Tirana, lehtësisht e arritshme me makinë.";
+      document.getElementById("rsvpTitle").innerText =
+        "Konfirmo pjesëmarrjen";
       document.getElementById("footerText").innerText =
         "Me dashuri, Olgert & Martina";
     } else {
