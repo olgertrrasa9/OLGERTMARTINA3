@@ -14,20 +14,20 @@
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background-color: #f6efe3;
-      color: #333;
+      background-color: #ffffff;
+      color: #c9a24d;
     }
 
     header {
       height: 100vh;
       background:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
         url("https://images.unsplash.com/photo-1520974735194-6c44c3b63b2a") center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: white;
+      color: #ffffff;
     }
 
     header h1 {
@@ -59,15 +59,15 @@
     .section-title h2 {
       text-align: center;
       font-family: 'Playfair Display', serif;
-      color: #9c7a2f;
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       margin-bottom: 30px;
+      color: #c9a24d;
     }
 
     .intro-text {
       text-align: center;
       font-style: italic;
-      max-width: 750px;
+      max-width: 800px;
       margin: 0 auto 30px;
       line-height: 1.6;
     }
@@ -108,34 +108,33 @@
     }
 
     .card {
-      background: white;
-      padding: 35px;
+      background: #ffffff;
+      padding: 40px;
       border-radius: 18px;
       text-align: center;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.10);
     }
 
     .card h3 {
       font-family: 'Playfair Display', serif;
-      color: #9c7a2f;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      color: #c9a24d;
     }
 
-    .map-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 28px;
-      background: #c9a24d;
-      color: white;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 500;
+    .big-date {
+      font-size: 2.4rem;
+      font-weight: 600;
+    }
+
+    .big-time {
+      font-size: 2rem;
+      margin-top: 10px;
     }
 
     .whatsapp a {
       display: inline-block;
       padding: 15px 30px;
-      background: #25D366;
+      background: #c9a24d;
       color: white;
       text-decoration: none;
       border-radius: 50px;
@@ -145,20 +144,21 @@
 
     .countdown {
       font-size: 1.6rem;
-      color: #9c7a2f;
       margin-top: 20px;
     }
 
     footer {
-      background: #2f2f2f;
-      color: white;
+      background: #ffffff;
       text-align: center;
       padding: 40px 20px;
+      border-top: 1px solid #eee;
     }
 
     @media (max-width: 768px) {
       header h1 { font-size: 2.8rem; }
       section { padding: 60px 15px; }
+      .big-date { font-size: 2rem; }
+      .big-time { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -197,15 +197,14 @@
 
     <div class="hotels">
       <div class="card">
-        <h3 id="ceremony">Cerimonia</h3>
-        <p id="ceremony-text">Sabato 25 Aprile<br>Ore 11:00</p>
+        <h3>Cerimonia</h3>
+        <div class="big-date">Sabato 25 Aprile</div>
+        <div class="big-time">Ore 11:00</div>
       </div>
 
-      <div class="card">
-        <h3 id="reception">Ricevimento</h3>
-        <p id="reception-text">
-          A seguire presso<br><strong>Katalea Palace</strong>
-        </p>
+      <div class="card hotel">
+        <h3>KATALEA PALACE</h3>
+        <img src="foto5.jpg" alt="Katalea Palace">
       </div>
     </div>
   </div>
@@ -220,7 +219,10 @@
 
     <p id="hotel-text" class="intro-text">
       Gli alberghi si trovano a pochi metri dal Katalea Palace.
-      Pagamento al check-in – <strong>30 € a notte</strong>.
+      Per prenotare è sufficiente scriverci insieme alla conferma
+      indicando numero di stanze e notti.
+      <br><br>
+      Pagamento al check-in – <strong>30 € a notte</strong> (stanza matrimoniale).
     </p>
 
     <div class="hotels">
@@ -233,34 +235,6 @@
         <h3>Yjet Resort</h3>
         <img src="foto4.jpg">
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- COME ARRIVARE -->
-<section class="fade">
-  <div class="container">
-    <div class="section-title">
-      <h2 id="arrival-title">Come arrivare</h2>
-    </div>
-
-    <p id="arrival-text" class="intro-text">
-      Katalea Palace si trova a circa 35 minuti da Tirana.
-      Facilmente raggiungibile in auto lungo la strada E853.
-      Ampio parcheggio disponibile in struttura.
-    </p>
-
-    <div style="border-radius:18px; overflow:hidden;">
-      <iframe
-        src="https://www.google.com/maps?q=Katalea+Palace+Fier&output=embed"
-        width="100%" height="450" style="border:0;" loading="lazy">
-      </iframe>
-    </div>
-
-    <div style="text-align:center;">
-      <a class="map-btn" href="https://maps.google.com/?q=Katalea+Palace+Fier" target="_blank">
-        Apri su Google Maps
-      </a>
     </div>
   </div>
 </section>
@@ -303,17 +277,10 @@
       document.getElementById("story-text").innerText =
         "Me shumë gëzim ju ftojmë të ndani me ne ditën më të rëndësishme të jetës sonë.";
       document.getElementById("ceremony-title").innerText = "Ceremonia & Darka";
-      document.getElementById("ceremony").innerText = "Ceremonia";
-      document.getElementById("ceremony-text").innerText = "E shtunë, 25 Prill\nOra 11:00";
-      document.getElementById("reception").innerText = "Darka";
-      document.getElementById("reception-text").innerHTML =
-        "Menjëherë pas ceremonisë<br><strong>Katalea Palace</strong>";
       document.getElementById("hotel-title").innerText = "Struktura të rekomanduara";
-      document.getElementById("hotel-text").innerText =
-        "Hotelet ndodhen pranë Katalea Palace. Pagesa në check-in – 30 € për natë.";
-      document.getElementById("arrival-title").innerText = "Si të mbërrini";
-      document.getElementById("arrival-text").innerText =
-        "Katalea Palace ndodhet rreth 35 minuta nga Tirana, lehtësisht e arritshme me makinë.";
+      document.getElementById("hotel-text").innerHTML =
+        "Hotelet ndodhen pranë Katalea Palace.<br><br>" +
+        "<strong>Pagesa bëhet në check-in – 30 € për natë.</strong>";
       document.getElementById("rsvp-title").innerText = "Konfirmo pjesëmarrjen";
     } else {
       location.reload();
