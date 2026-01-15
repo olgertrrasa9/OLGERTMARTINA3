@@ -18,7 +18,6 @@
       font-family: 'Montserrat', sans-serif;
     }
 
-    /* HEADER */
     header {
       padding: 80px 20px 40px;
       text-align: center;
@@ -79,21 +78,12 @@
       margin: 0 auto 35px;
     }
 
-    /* IMMAGINI */
-    .story img {
+    .story img,
+    .hotel img {
       width: 100%;
       max-width: 420px;
       max-height: 520px;
       object-fit: cover;
-      margin: auto;
-      display: block;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    .hotel img {
-      width: 100%;
-      max-width: 420px;
       margin: auto;
       display: block;
       border-radius: 14px;
@@ -125,21 +115,29 @@
       margin-top: 8px;
     }
 
+    .presso {
+      margin: 10px 0;
+      font-style: italic;
+    }
+
     .countdown {
       font-size: 1.8rem;
       margin-top: 20px;
     }
 
-    .whatsapp a {
+    .whatsapp a,
+    .maps-btn {
       display: inline-block;
-      margin-top: 30px;
-      padding: 15px 35px;
-      background: #25D366;
-      color: white;
+      margin-top: 25px;
+      padding: 14px 32px;
       border-radius: 50px;
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+      color: white;
     }
+
+    .whatsapp a { background: #25D366; }
+    .maps-btn { background: #c9a24d; }
 
     iframe {
       width: 100%;
@@ -189,7 +187,7 @@
   </div>
 </section>
 
-<!-- CERIMONIA & RICEVIMENTO -->
+<!-- CERIMONIA -->
 <section>
   <div class="container">
     <div class="section-title">
@@ -201,39 +199,12 @@
         <h3 id="ceremonyLabel">La cerimonia si terrà</h3>
         <div id="ceremonyDate" class="big-date">Sabato 25 Aprile</div>
         <div id="ceremonyTime" class="big-time">Ore 11:00</div>
+        <div id="pressoText" class="presso">presso</div>
+        <strong>KATALEA PALACE</strong>
       </div>
 
       <div class="card hotel">
-        <h3 id="receptionLabel">KATALEA PALACE</h3>
         <img src="foto5.jpg" alt="Katalea Palace">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- STRUTTURE -->
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2 id="hotelTitle">Strutture consigliate per alloggiare</h2>
-    </div>
-
-    <p id="hotelText" class="intro-text">
-      Gli alberghi sotto elencati si trovano a pochi metri dal Katalea Palace.
-      Per chi fosse interessato a prenotare è sufficiente scriverci indicando
-      numero di stanze e notti.<br><br>
-      Pagamento al check-in: <strong>30 € a notte</strong>.
-    </p>
-
-    <div class="hotels">
-      <div class="card hotel">
-        <h3>Kodra e Gjelbër</h3>
-        <img src="foto3.jpg">
-      </div>
-
-      <div class="card hotel">
-        <h3>Yjet Resort</h3>
-        <img src="foto4.jpg">
       </div>
     </div>
   </div>
@@ -247,14 +218,22 @@
     </div>
 
     <p id="arrivalText" class="intro-text">
-      Katalea Palace si trova a circa 35 minuti da Tirana, facilmente raggiungibile in auto percorrendo la strada E853.
-      La struttura dispone di un ampio parcheggio.
+      Katalea Palace si trova in località Qafa e Koshovices.
+      Coordinate GPS: <strong>40.696138065699465, 19.532816837859283</strong>
     </p>
 
     <iframe
-      src="https://www.google.com/maps?q=Katalea+Palace+Fier&output=embed"
+      src="https://www.google.com/maps?q=40.696138065699465,19.532816837859283&output=embed"
       loading="lazy">
     </iframe>
+
+    <div style="text-align:center;">
+      <a class="maps-btn"
+         href="https://www.google.com/maps/search/?api=1&query=40.696138065699465,19.532816837859283"
+         target="_blank">
+        Apri su Google Maps
+      </a>
+    </div>
   </div>
 </section>
 
@@ -282,40 +261,47 @@
 <script>
   /* COUNTDOWN */
   const weddingDate = new Date("2026-04-25T11:00:00");
-  setInterval(() => {
+
+  function updateCountdown(lang = 'it') {
     const now = new Date();
     const diff = weddingDate - now;
-    if (diff > 0) {
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      document.getElementById("countdown").innerHTML =
-        "<strong>" + days + "</strong><br>giorni al nostro SI";
-    }
-  }, 1000);
+    const el = document.getElementById("countdown");
 
-  /* LINGUE */
+    if (diff <= 0) {
+      el.innerHTML = lang === 'sq'
+        ? "Është dita e po-së sonë 💍"
+        : "È arrivato il giorno del nostro sì 💍";
+      return;
+    }
+
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    el.innerHTML = lang === 'sq'
+      ? "<strong>" + days + "</strong><br>ditë deri në po-në tonë"
+      : "<strong>" + days + "</strong><br>giorni al nostro sì";
+  }
+
+  updateCountdown();
+
   function setLang(lang) {
+    updateCountdown(lang);
+
     if (lang === "sq") {
       document.getElementById("intro").innerText =
         "Me shumë gëzim ju ftojmë të ndani me ne ditën më të rëndësishme të jetës sonë.";
       document.getElementById("ceremonyTitle").innerText =
         "Ceremonia & Darka";
       document.getElementById("ceremonyLabel").innerText =
-        "Ceremonia";
+        "Ceremonia do të zhvillohet";
       document.getElementById("ceremonyDate").innerText =
         "E shtunë, 25 Prill";
       document.getElementById("ceremonyTime").innerText =
         "Ora 11:00";
-      document.getElementById("hotelTitle").innerText =
-        "Struktura të rekomanduara";
-      document.getElementById("hotelText").innerHTML =
-        "Hotelet ndodhen pranë Katalea Palace.<br>" +
-        "Për rezervim, mjafton të na shkruani duke treguar " +
-        "numrin e dhomave dhe netëve.<br><br>" +
-        "<strong>Pagesa bëhet në check-in – 30 € për natë.</strong>";
+      document.getElementById("pressoText").innerText =
+        "tek";
       document.getElementById("arrivalTitle").innerText =
         "Si të mbërrini";
       document.getElementById("arrivalText").innerText =
-        "Katalea Palace ndodhet rreth 35 minuta nga Tirana, lehtësisht e arritshme me makinë.";
+        "Katalea Palace ndodhet në Qafa e Koshovices. Koordinatat GPS: 40.696138065699465, 19.532816837859283.";
       document.getElementById("rsvpTitle").innerText =
         "Konfirmo pjesëmarrjen";
       document.getElementById("footerText").innerText =
