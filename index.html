@@ -9,9 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -23,7 +21,7 @@
     header {
       height: 100vh;
       background:
-        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
         url("https://images.unsplash.com/photo-1520974735194-6c44c3b63b2a") center/cover no-repeat;
       display: flex;
       align-items: center;
@@ -35,12 +33,6 @@
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 4rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.3rem;
-      letter-spacing: 2px;
     }
 
     .lang {
@@ -60,15 +52,9 @@
       font-weight: 500;
     }
 
-    section {
-      padding: 80px 20px;
-      background-color: #f6efe3;
-    }
+    section { padding: 80px 20px; }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-    }
+    .container { max-width: 1100px; margin: auto; }
 
     .section-title h2 {
       text-align: center;
@@ -81,10 +67,9 @@
     .intro-text {
       text-align: center;
       font-style: italic;
-      font-size: 1.1rem;
+      max-width: 750px;
+      margin: 0 auto 30px;
       line-height: 1.6;
-      max-width: 700px;
-      margin: 0 auto 25px;
     }
 
     .gold-line {
@@ -97,7 +82,7 @@
     .fade {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
+      transition: all 1s ease;
     }
 
     .fade.show {
@@ -105,33 +90,19 @@
       transform: translateY(0);
     }
 
-    .story {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      align-items: center;
-      text-align: center;
-    }
-
     .story img,
-    .gallery img,
     .hotel img {
       width: 100%;
       max-width: 500px;
       margin: auto;
       display: block;
       border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .gallery {
-      display: flex;
-      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
     .hotels {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
       gap: 40px;
       margin-top: 40px;
     }
@@ -141,13 +112,24 @@
       padding: 35px;
       border-radius: 18px;
       text-align: center;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
     }
 
     .card h3 {
       font-family: 'Playfair Display', serif;
       color: #9c7a2f;
       margin-bottom: 15px;
+    }
+
+    .map-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 28px;
+      background: #c9a24d;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
     }
 
     .whatsapp a {
@@ -162,7 +144,6 @@
     }
 
     .countdown {
-      text-align: center;
       font-size: 1.6rem;
       color: #9c7a2f;
       margin-top: 20px;
@@ -176,161 +157,175 @@
     }
 
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.8rem;
-      }
-
-      header p {
-        font-size: 1rem;
-        padding: 0 15px;
-      }
-
-      section {
-        padding: 60px 15px;
-      }
+      header h1 { font-size: 2.8rem; }
+      section { padding: 60px 15px; }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="lang">
-    <button onclick="setLang('it')">IT</button>
-    <button onclick="setLang('sq')">AL</button>
+<div class="lang">
+  <button onclick="setLang('it')">IT</button>
+  <button onclick="setLang('sq')">AL</button>
+</div>
+
+<header>
+  <h1>Olgert & Martina</h1>
+</header>
+
+<!-- INTRO -->
+<section class="fade">
+  <div class="container">
+    <p id="story-text" class="intro-text">
+      Con grande gioia vi invitiamo a condividere con noi
+      il giorno più importante della nostra vita.
+    </p>
+    <div class="gold-line"></div>
+    <div class="story">
+      <img src="foto1.jpg" alt="Olgert e Martina">
+    </div>
   </div>
+</section>
 
-  <header>
-    <div>
-      <h1>Olgert & Martina</h1>
-      <p id="hero-text">Sabato 25 Aprile · Ore 11:00 · Albania</p>
+<!-- CERIMONIA & RICEVIMENTO -->
+<section class="fade">
+  <div class="container">
+    <div class="section-title">
+      <h2 id="ceremony-title">Cerimonia & Ricevimento</h2>
     </div>
-  </header>
 
-  <section class="fade">
-    <div class="container">
-
-      <p id="story-text" class="intro-text">
-        Con grande gioia vi invitiamo a condividere con noi
-        il giorno più importante della nostra vita.
-      </p>
-
-      <div class="gold-line"></div>
-
-      <div class="section-title">
-        <h2 id="title-story">Il nostro sì</h2>
+    <div class="hotels">
+      <div class="card">
+        <h3 id="ceremony">Cerimonia</h3>
+        <p id="ceremony-text">Sabato 25 Aprile<br>Ore 11:00</p>
       </div>
 
-      <div class="story">
-        <img src="foto1.jpg" alt="Olgert e Martina">
-      </div>
-
-    </div>
-  </section>
-
-  <section class="fade">
-    <div class="container">
-      <div class="section-title">
-        <h2>Momenti insieme</h2>
-      </div>
-
-      <div class="story">
-        <img src="foto2.jpg" alt="Momento romantico">
+      <div class="card">
+        <h3 id="reception">Ricevimento</h3>
+        <p id="reception-text">
+          A seguire presso<br><strong>Katalea Palace</strong>
+        </p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="fade">
-    <div class="container">
-      <div class="section-title">
-        <h2 id="hotel-title">Strutture consigliate</h2>
+<!-- STRUTTURE -->
+<section class="fade">
+  <div class="container">
+    <div class="section-title">
+      <h2 id="hotel-title">Strutture consigliate</h2>
+    </div>
+
+    <p id="hotel-text" class="intro-text">
+      Gli alberghi si trovano a pochi metri dal Katalea Palace.
+      Pagamento al check-in – <strong>30 € a notte</strong>.
+    </p>
+
+    <div class="hotels">
+      <div class="card hotel">
+        <h3>Kodra e Gjelbër</h3>
+        <img src="foto3.jpg">
       </div>
 
-      <p id="hotel-text" style="text-align:center; max-width:800px; margin:0 auto;">
-        Gli alberghi si trovano a pochi metri dal Katalea Palace.
-        Per prenotare è sufficiente scriverci insieme alla conferma
-        indicando numero di stanze e notti.
-        <br><br>
-        Pagamento al check-in – <strong>30 € a notte</strong> (stanza matrimoniale).
-      </p>
-
-      <div class="hotels">
-        <div class="card hotel">
-          <h3>Kodra e Gjelbër</h3>
-          <img src="foto3.jpg" alt="Kodra e Gjelbër">
-          <p>A pochi metri dalla location<br>Pagamento al check-in</p>
-        </div>
-
-        <div class="card hotel">
-          <h3>Yjet Resort</h3>
-          <img src="foto4.jpg" alt="Yjet Resort">
-          <p>A pochi metri dal Katalea Palace<br>Pagamento al check-in</p>
-        </div>
+      <div class="card hotel">
+        <h3>Yjet Resort</h3>
+        <img src="foto4.jpg">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="fade">
-    <div class="container" style="text-align:center;">
-      <div class="section-title">
-        <h2 id="rsvp-title">Conferma presenza</h2>
-      </div>
-
-      <div class="countdown" id="countdown"></div>
-
-      <div class="whatsapp">
-        <a href="https://wa.me/393297544593" target="_blank">
-          Scrivici su WhatsApp
-        </a>
-      </div>
+<!-- COME ARRIVARE -->
+<section class="fade">
+  <div class="container">
+    <div class="section-title">
+      <h2 id="arrival-title">Come arrivare</h2>
     </div>
-  </section>
 
-  <footer>
-    <p>Con amore, Olgert & Martina</p>
-  </footer>
+    <p id="arrival-text" class="intro-text">
+      Katalea Palace si trova a circa 35 minuti da Tirana.
+      Facilmente raggiungibile in auto lungo la strada E853.
+      Ampio parcheggio disponibile in struttura.
+    </p>
 
-  <script>
-    const weddingDate = new Date("2026-04-25T11:00:00");
-    setInterval(() => {
-      const now = new Date();
-      const diff = weddingDate - now;
-      if (diff > 0) {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        document.getElementById("countdown").innerHTML =
-          "<strong>" + days + "</strong><br>giorni al nostro sì";
-      }
-    }, 1000);
+    <div style="border-radius:18px; overflow:hidden;">
+      <iframe
+        src="https://www.google.com/maps?q=Katalea+Palace+Fier&output=embed"
+        width="100%" height="450" style="border:0;" loading="lazy">
+      </iframe>
+    </div>
 
-    function setLang(lang) {
-      if (lang === "sq") {
-        document.getElementById("hero-text").innerText =
-          "E shtunë, 25 Prill · Ora 11:00 · Shqipëri";
-        document.getElementById("title-story").innerText = "Po-ja jonë";
-        document.getElementById("story-text").innerText =
-          "Me shumë gëzim ju ftojmë të ndani me ne ditën më të rëndësishme të jetës sonë.";
-        document.getElementById("hotel-title").innerText =
-          "Struktura të rekomanduara";
-        document.getElementById("hotel-text").innerHTML =
-          "Hotelet ndodhen disa metra nga Katalea Palace.<br><br>" +
-          "Për rezervim, na shkruani së bashku me konfirmimin duke treguar " +
-          "numrin e dhomave dhe netëve.<br><br>" +
-          "<strong>Pagesa bëhet në check-in – 30 € për natë (dhomë matrimoniale).</strong>";
-        document.getElementById("rsvp-title").innerText =
-          "Konfirmo pjesëmarrjen";
-      } else {
-        location.reload();
-      }
+    <div style="text-align:center;">
+      <a class="map-btn" href="https://maps.google.com/?q=Katalea+Palace+Fier" target="_blank">
+        Apri su Google Maps
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section class="fade">
+  <div class="container" style="text-align:center;">
+    <div class="section-title">
+      <h2 id="rsvp-title">Conferma presenza</h2>
+    </div>
+
+    <div class="countdown" id="countdown"></div>
+
+    <div class="whatsapp">
+      <a href="https://wa.me/393297544593" target="_blank">
+        Scrivici su WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Con amore, Olgert & Martina</p>
+</footer>
+
+<script>
+  const weddingDate = new Date("2026-04-25T11:00:00");
+  setInterval(() => {
+    const now = new Date();
+    const diff = weddingDate - now;
+    if (diff > 0) {
+      const days = Math.floor(diff / (1000*60*60*24));
+      document.getElementById("countdown").innerHTML =
+        "<strong>" + days + "</strong><br>giorni al nostro sì";
     }
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("show");
-      });
-    }, {
-      threshold: 0.15
-    });
-    document.querySelectorAll(".fade").forEach(el => observer.observe(el));
-  </script>
+  }, 1000);
+
+  function setLang(lang) {
+    if (lang === "sq") {
+      document.getElementById("story-text").innerText =
+        "Me shumë gëzim ju ftojmë të ndani me ne ditën më të rëndësishme të jetës sonë.";
+      document.getElementById("ceremony-title").innerText = "Ceremonia & Darka";
+      document.getElementById("ceremony").innerText = "Ceremonia";
+      document.getElementById("ceremony-text").innerText = "E shtunë, 25 Prill\nOra 11:00";
+      document.getElementById("reception").innerText = "Darka";
+      document.getElementById("reception-text").innerHTML =
+        "Menjëherë pas ceremonisë<br><strong>Katalea Palace</strong>";
+      document.getElementById("hotel-title").innerText = "Struktura të rekomanduara";
+      document.getElementById("hotel-text").innerText =
+        "Hotelet ndodhen pranë Katalea Palace. Pagesa në check-in – 30 € për natë.";
+      document.getElementById("arrival-title").innerText = "Si të mbërrini";
+      document.getElementById("arrival-text").innerText =
+        "Katalea Palace ndodhet rreth 35 minuta nga Tirana, lehtësisht e arritshme me makinë.";
+      document.getElementById("rsvp-title").innerText = "Konfirmo pjesëmarrjen";
+    } else {
+      location.reload();
+    }
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => e.isIntersecting && e.target.classList.add("show"));
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll(".fade").forEach(el => observer.observe(el));
+</script>
 
 </body>
-
 </html>
