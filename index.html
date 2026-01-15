@@ -47,14 +47,9 @@
       font-weight: 500;
     }
 
-    section {
-      padding: 70px 20px;
-    }
+    section { padding: 70px 20px; }
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-    }
+    .container { max-width: 1000px; margin: auto; }
 
     .section-title h2 {
       text-align: center;
@@ -178,11 +173,9 @@
       Con grande gioia vi invitiamo a condividere con noi
       il giorno più importante della nostra vita.
     </p>
-
     <div class="gold-line"></div>
-
     <div class="story">
-      <img src="foto1.jpg" alt="Olgert e Martina">
+      <img src="foto1.jpg">
     </div>
   </div>
 </section>
@@ -204,7 +197,35 @@
       </div>
 
       <div class="card hotel">
-        <img src="foto5.jpg" alt="Katalea Palace">
+        <img src="foto5.jpg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRUTTURE -->
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2 id="hotelTitle">Strutture consigliate per alloggiare</h2>
+    </div>
+
+    <p id="hotelText" class="intro-text">
+      Gli alberghi sotto elencati si trovano a pochi metri dal Katalea Palace.
+      Per chi fosse interessato a prenotare è sufficiente scriverci indicando
+      numero di stanze e notti.<br><br>
+      Pagamento al check-in: <strong>30 € a notte</strong>.
+    </p>
+
+    <div class="hotels">
+      <div class="card hotel">
+        <h3>Kodra e Gjelbër</h3>
+        <img src="foto3.jpg">
+      </div>
+
+      <div class="card hotel">
+        <h3>Yjet Resort</h3>
+        <img src="foto4.jpg">
       </div>
     </div>
   </div>
@@ -219,6 +240,7 @@
 
     <p id="arrivalText" class="intro-text">
       Katalea Palace si trova in località Qafa e Koshovices.
+      Coordinate GPS: <strong>40.696138065699465, 19.532816837859283</strong>
     </p>
 
     <iframe
@@ -258,7 +280,6 @@
 </footer>
 
 <script>
-  /* COUNTDOWN */
   const weddingDate = new Date("2026-04-25T11:00:00");
 
   function updateCountdown(lang = 'it') {
@@ -297,6 +318,13 @@
         "Ora 11:00";
       document.getElementById("pressoText").innerText =
         "tek";
+      document.getElementById("hotelTitle").innerText =
+        "Struktura të rekomanduara për qëndrim";
+      document.getElementById("hotelText").innerHTML =
+        "Hotelet e listuara ndodhen pranë Katalea Palace.<br>" +
+        "Për rezervim mjafton të na shkruani duke treguar " +
+        "numrin e dhomave dhe netëve.<br><br>" +
+        "<strong>Pagesa bëhet në check-in – 30 € për natë.</strong>";
       document.getElementById("arrivalTitle").innerText =
         "Si të mbërrini";
       document.getElementById("arrivalText").innerText =
@@ -313,4 +341,3 @@
 
 </body>
 </html>
-
