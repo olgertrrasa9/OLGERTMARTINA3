@@ -158,9 +158,18 @@
 <body>
 
 <!-- MUSICA DI SOTTOFONDO -->
-<audio autoplay loop>
+<audio id="bg-music" autoplay loop muted>
   <source src="musica.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+  document.addEventListener("click", function () {
+    const music = document.getElementById("bg-music");
+    music.muted = false;
+    music.volume = 0.25;
+    music.play();
+  }, { once: true });
+</script>
 
 <div class="lang">
   <button onclick="setLang('it')">IT</button>
@@ -244,15 +253,10 @@
       La struttura dispone di un ampio parcheggio.
     </p>
 
-    <iframe
-      src="https://www.google.com/maps?q=40.696138065699465,19.532816837859283&output=embed"
-      loading="lazy">
-    </iframe>
+    <iframe src="https://www.google.com/maps?q=40.696138065699465,19.532816837859283&output=embed"></iframe>
 
     <div style="text-align:center;">
-      <a class="maps-btn"
-         href="https://www.google.com/maps/search/?api=1&query=40.696138065699465,19.532816837859283"
-         target="_blank">
+      <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=40.696138065699465,19.532816837859283" target="_blank">
         Apri su Google Maps
       </a>
     </div>
@@ -268,9 +272,7 @@
     <div id="countdown" class="countdown"></div>
 
     <div class="whatsapp">
-      <a href="https://wa.me/393297544593" target="_blank">
-        Scrivici su WhatsApp
-      </a>
+      <a href="https://wa.me/393297544593" target="_blank">Scrivici su WhatsApp</a>
     </div>
   </div>
 </section>
