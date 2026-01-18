@@ -47,7 +47,6 @@
       font-weight: 500;
     }
 
-    /* 🎵 PULSANTE MUSICA */
     .music-btn {
       position: fixed;
       top: 70px;
@@ -64,9 +63,7 @@
       z-index: 10;
     }
 
-    .music-btn.paused {
-      background: #bbb;
-    }
+    .music-btn.paused { background: #bbb; }
 
     section { padding: 70px 20px; }
     .container { max-width: 1000px; margin: auto; }
@@ -135,10 +132,10 @@
       text-decoration: none;
       font-size: 1.05rem;
       color: white;
+      background: #c9a24d;
     }
 
     .whatsapp a { background: #25D366; }
-    .maps-btn { background: #c9a24d; }
 
     iframe {
       width: 100%;
@@ -158,18 +155,15 @@
 
 <body>
 
-<!-- AUDIO -->
 <audio id="bg-music" autoplay loop muted>
   <source src="musica1.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 🎵 PULSANTE MUSICA -->
-<button id="musicBtn" class="music-btn paused" aria-label="Musica">🎵</button>
+<button id="musicBtn" class="music-btn paused">🎵</button>
 
 <script>
   const music = document.getElementById("bg-music");
   const musicBtn = document.getElementById("musicBtn");
-
   music.volume = 0.25;
 
   musicBtn.addEventListener("click", () => {
@@ -216,64 +210,14 @@
         <div id="ceremonyTime" class="big-time"></div>
         <div id="pressoText" class="presso"></div>
         <div class="big-date">KATALEA PALACE</div>
+
+        <!-- ✅ PULSANTE CALENDARIO -->
+        <a id="calendarBtn" class="maps-btn" download="Matrimonio_Olgert_Martina.ics"></a>
       </div>
 
       <div class="card hotel">
         <img src="foto5.jpg">
       </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2 id="hotelTitle"></h2>
-    </div>
-
-    <p id="hotelText" class="intro-text"></p>
-
-    <div class="hotels">
-      <div class="card hotel">
-        <h3>Kodra e Gjelbër</h3>
-        <img src="foto3.jpg">
-
-        <a id="maps-kodra" class="maps-btn" target="_blank"
-           href="https://www.google.com/maps/search/?api=1&query=40.69649249157289,19.53384840975468"></a>
-
-        <div class="whatsapp">
-          <a id="wa-kodra" target="_blank"></a>
-        </div>
-      </div>
-
-      <div class="card hotel">
-        <h3>Yjet Resort</h3>
-        <img src="foto4.jpg">
-
-        <a id="maps-yjet" class="maps-btn" target="_blank"
-           href="https://www.google.com/maps/search/?api=1&query=40.695331115336494,19.529534626706052"></a>
-
-        <div class="whatsapp">
-          <a id="wa-yjet" target="_blank"></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2 id="arrivalTitle"></h2>
-    </div>
-
-    <p id="arrivalText" class="intro-text"></p>
-
-    <iframe src="https://www.google.com/maps?q=40.696138065699465,19.532816837859283&output=embed"></iframe>
-
-    <div style="text-align:center;">
-      <a id="maps-palace" class="maps-btn" target="_blank"
-         href="https://www.google.com/maps/search/?api=1&query=40.696138065699465,19.532816837859283"></a>
     </div>
   </div>
 </section>
@@ -307,13 +251,30 @@
         : "<strong>" + days + "</strong><br>giorni al nostro sì";
   }
 
+  function generateICS(lang) {
+    const title = lang === "sq" ? "Dasma e Olgert & Martina" : "Matrimonio Olgert & Martina";
+    const description = lang === "sq"
+      ? "Ceremonia dhe dreka në Katalea Palace"
+      : "Cerimonia e ricevimento presso Katalea Palace";
+
+    const ics =
+`BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:${title}
+DESCRIPTION:${description}
+LOCATION:Katalea Palace, Albania
+DTSTART:20260425T090000Z
+DTEND:20260425T150000Z
+END:VEVENT
+END:VCALENDAR`;
+
+    const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+    document.getElementById("calendarBtn").href = URL.createObjectURL(blob);
+  }
+
   function setLang(lang) {
     updateCountdown(lang);
-
-    const msg =
-      lang === "sq"
-        ? "Përshëndetje, do të dëshironim informacion për rezervimin e dhomave për dasmën e Olgert & Martina."
-        : "Ciao, vorremmo informazioni per la prenotazione delle stanze in occasione del matrimonio di Olgert & Martina.";
 
     document.getElementById("intro").innerText =
       lang === "sq"
@@ -322,30 +283,18 @@
 
     document.getElementById("ceremonyTitle").innerText =
       lang === "sq" ? "Ceremonia & Dreka" : "Cerimonia & Ricevimento";
+
     document.getElementById("ceremonyLabel").innerText =
       lang === "sq" ? "Ceremonia do të zhvillohet" : "La cerimonia si terrà";
+
     document.getElementById("ceremonyDate").innerText =
       lang === "sq" ? "E shtunë, 25 Prill" : "Sabato 25 Aprile";
+
     document.getElementById("ceremonyTime").innerText =
       lang === "sq" ? "Ora 11:00" : "Ore 11:00";
+
     document.getElementById("pressoText").innerText =
       lang === "sq" ? "tek" : "presso";
-
-    document.getElementById("hotelTitle").innerText =
-      lang === "sq" ? "Struktura të rekomanduara për qëndrim" : "Strutture consigliate per alloggiare";
-
-    document.getElementById("hotelText").innerHTML =
-      lang === "sq"
-        ? "Hotelet e listuara ndodhen pranë Katalea Palace. Mund t’ju ndihmojmë për rezervimin e dhomave ose mund të kontaktoni direkt strukturat.<br><br><strong>Pagesa bëhet në check-in: 30 € për natë.</strong>"
-        : "Gli alberghi sotto elencati si trovano a pochi metri dal Katalea Palace. Ve li consigliamo per la comodità, ma soprattutto perché abbiamo contatti diretti con i proprietari e possiamo aiutarvi nella prenotazione delle stanze, se necessario. Qualora invece preferiste organizzarvi in autonomia, di seguito trovate i contatti di riferimento.<br><br><strong>Pagamento al check-in: 30 € a notte.</strong>";
-
-    document.getElementById("arrivalTitle").innerText =
-      lang === "sq" ? "Si të mbërrini" : "Come arrivare";
-
-    document.getElementById("arrivalText").innerText =
-      lang === "sq"
-        ? "Katalea Palace ndodhet rreth 1 orë e 30 minuta nga Aeroporti i Tiranës dhe arrihet lehtësisht me makinë. Rekomandojmë të merrni me qira një makinë me tërheqje dhe dorëzim direkt në aeroport dhe ta rezervoni disa ditë më parë. Parkim i madh në dispozicion."
-        : "Katalea Palace dista circa 1 ora e 30 minuti dall’Aeroporto di Tirana ed è facilmente raggiungibile in auto. Per muoversi in totale comodità, consigliamo di noleggiare un’auto con ritiro e riconsegna direttamente in aeroporto e di prenotare con qualche giorno di anticipo. La struttura dispone inoltre di un ampio parcheggio.";
 
     document.getElementById("rsvpTitle").innerText =
       lang === "sq" ? "Konfirmo pjesëmarrjen tende" : "Conferma la tua presenza";
@@ -353,22 +302,10 @@
     document.getElementById("footerText").innerText =
       lang === "sq" ? "Me dashuri, Olgert & Martina" : "Con amore, Olgert & Martina";
 
-    document.getElementById("maps-kodra").innerText =
-    document.getElementById("maps-yjet").innerText =
-    document.getElementById("maps-palace").innerText =
-      lang === "sq" ? "Hap në Google Maps" : "Apri su Google Maps";
+    document.getElementById("calendarBtn").innerText =
+      lang === "sq" ? "Shto në kalendar" : "Aggiungi al calendario";
 
-    document.getElementById("wa-kodra").innerText =
-    document.getElementById("wa-yjet").innerText =
-      lang === "sq" ? "Kontakto në WhatsApp" : "Contatta su WhatsApp";
-
-    document.getElementById("main-wa").innerText =
-      lang === "sq" ? "Na shkruani në WhatsApp" : "Scrivici su WhatsApp";
-
-    document.getElementById("wa-kodra").href =
-      "https://wa.me/355694650614?text=" + encodeURIComponent(msg);
-    document.getElementById("wa-yjet").href =
-      "https://wa.me/355696807777?text=" + encodeURIComponent(msg);
+    generateICS(lang);
   }
 
   setLang("it");
