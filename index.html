@@ -189,7 +189,88 @@
   </div>
 </section>
 
-<!-- SEZIONI CENTRALI INVARIATE -->
+<!-- CERIMONIA -->
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2 id="ceremonyTitle"></h2>
+    </div>
+
+    <div class="hotels">
+      <div class="card">
+        <h3 id="ceremonyLabel"></h3>
+        <div id="ceremonyDate" class="big-date"></div>
+        <div id="ceremonyTime" class="big-time"></div>
+        <div id="pressoText" class="presso"></div>
+        <div class="big-date">KATALEA PALACE</div>
+      </div>
+
+      <div class="card hotel">
+        <img src="foto5.jpg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOTEL -->
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2 id="hotelTitle"></h2>
+    </div>
+
+    <p id="hotelText" class="intro-text"></p>
+
+    <div class="hotels">
+      <div class="card hotel">
+        <h3>Kodra e Gjelbër</h3>
+        <img src="foto3.jpg">
+
+        <a id="maps-kodra" class="maps-btn" target="_blank"
+           href="https://www.google.com/maps/search/?api=1&query=40.69649249157289,19.53384840975468"></a>
+
+        <div class="whatsapp">
+          <a id="wa-kodra" target="_blank"></a>
+        </div>
+      </div>
+
+      <div class="card hotel">
+        <h3>Yjet Resort</h3>
+        <img src="foto4.jpg">
+
+        <a id="maps-yjet" class="maps-btn" target="_blank"
+           href="https://www.google.com/maps/search/?api=1&query=40.695331115336494,19.529534626706052"></a>
+
+        <div class="whatsapp">
+          <a id="wa-yjet" target="_blank"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARRIVO -->
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2 id="arrivalTitle"></h2>
+    </div>
+
+    <p id="arrivalText" class="intro-text"></p>
+
+    <iframe src="https://www.google.com/maps?q=40.696138065699465,19.532816837859283&output=embed"></iframe>
+
+    <div style="text-align:center;">
+      <a id="maps-palace" class="maps-btn" target="_blank"
+         href="https://www.google.com/maps/search/?api=1&query=40.696138065699465,19.532816837859283"></a>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
 
 <section>
   <div class="container" style="text-align:center;">
@@ -197,7 +278,6 @@
       <h2 id="rsvpTitle"></h2>
     </div>
 
-    <!-- PULSANTE SPOSTATO SOPRA IL COUNTDOWN -->
     <div class="whatsapp">
       <a id="main-wa" href="https://wa.me/393297544593" target="_blank"></a>
     </div>
@@ -214,39 +294,75 @@
   const weddingDate = new Date("2026-04-25T11:00:00");
 
   function updateCountdown(lang) {
-    const now = new Date();
-    const diff = weddingDate - now;
-    const el = document.getElementById("countdown");
-
-    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-
-    el.innerHTML = lang === 'sq'
-      ? "<strong>" + days + "</strong><br>ditë deri në po-në tonë"
-      : "<strong>" + days + "</strong><br>giorni al nostro sì";
+    const days = Math.ceil((weddingDate - new Date()) / (1000 * 60 * 60 * 24));
+    document.getElementById("countdown").innerHTML =
+      lang === 'sq'
+        ? "<strong>" + days + "</strong><br>ditë deri në po-në tonë"
+        : "<strong>" + days + "</strong><br>giorni al nostro sì";
   }
 
   function setLang(lang) {
     updateCountdown(lang);
 
-    if (lang === "sq") {
-      document.getElementById("intro").innerText =
-        "Me shumë gëzim ju ftojmë të ndani me ne ditën më të rëndësishme të jetës sonë.";
-      document.getElementById("rsvpTitle").innerText =
-        "Konfirmo pjesëmarrjen";
-      document.getElementById("main-wa").innerText =
-        "Na shkruani në WhatsApp";
-      document.getElementById("footerText").innerText =
-        "Me dashuri, Olgert & Martina";
-    } else {
-      document.getElementById("intro").innerText =
-        "Con grande gioia vi invitiamo a condividere con noi il giorno più importante della nostra vita.";
-      document.getElementById("rsvpTitle").innerText =
-        "Conferma presenza";
-      document.getElementById("main-wa").innerText =
-        "Scrivici su WhatsApp";
-      document.getElementById("footerText").innerText =
-        "Con amore, Olgert & Martina";
-    }
+    const msg =
+      lang === "sq"
+        ? "Përshëndetje, do të dëshironim informacion për rezervimin e dhomave për dasmën e Olgert & Martina."
+        : "Ciao, vorremmo informazioni per la prenotazione delle stanze in occasione del matrimonio di Olgert & Martina.";
+
+    document.getElementById("intro").innerText =
+      lang === "sq"
+        ? "Me shumë gëzim ju ftojmë të ndani me ne ditën më të rëndësishme të jetës sonë."
+        : "Con grande gioia vi invitiamo a condividere con noi il giorno più importante della nostra vita.";
+
+    document.getElementById("ceremonyTitle").innerText =
+      lang === "sq" ? "Ceremonia & Dreka" : "Cerimonia & Ricevimento";
+    document.getElementById("ceremonyLabel").innerText =
+      lang === "sq" ? "Ceremonia do të zhvillohet" : "La cerimonia si terrà";
+    document.getElementById("ceremonyDate").innerText =
+      lang === "sq" ? "E shtunë, 25 Prill" : "Sabato 25 Aprile";
+    document.getElementById("ceremonyTime").innerText =
+      lang === "sq" ? "Ora 11:00" : "Ore 11:00";
+    document.getElementById("pressoText").innerText =
+      lang === "sq" ? "tek" : "presso";
+
+    document.getElementById("hotelTitle").innerText =
+      lang === "sq" ? "Struktura të rekomanduara për qëndrim" : "Strutture consigliate per alloggiare";
+
+    document.getElementById("hotelText").innerHTML =
+      lang === "sq"
+        ? "Hotelet e listuara ndodhen pranë Katalea Palace.<br><br><strong>Pagesa bëhet në check-in: 30 € për natë.</strong>"
+        : "Gli alberghi sotto elencati si trovano a pochi metri dal Katalea Palace.<br><br><strong>Pagamento al check-in: 30 € a notte.</strong>";
+
+    document.getElementById("arrivalTitle").innerText =
+      lang === "sq" ? "Si të mbërrini" : "Come arrivare";
+
+    document.getElementById("arrivalText").innerText =
+      lang === "sq"
+        ? "Katalea Palace ndodhet rreth 1 orë e 30 minuta nga Aeroporti i Tiranës dhe arrihet lehtësisht me makinë. Rekomandojmë të merrni me qira një makinë me tërheqje dhe dorëzim direkt në aeroport. Parkim i madh në dispozicion."
+        : "Katalea Palace dista circa 1 ora e 30 minuti dall’Aeroporto di Tirana ed è facilmente raggiungibile in auto. Consigliamo di noleggiare un’auto con ritiro e riconsegna direttamente in aeroporto. La struttura dispone inoltre di un ampio parcheggio.";
+
+    document.getElementById("rsvpTitle").innerText =
+      lang === "sq" ? "Konfirmo pjesëmarrjen tende" : "Conferma la tua presenza";
+
+    document.getElementById("footerText").innerText =
+      lang === "sq" ? "Me dashuri, Olgert & Martina" : "Con amore, Olgert & Martina";
+
+    document.getElementById("maps-kodra").innerText =
+    document.getElementById("maps-yjet").innerText =
+    document.getElementById("maps-palace").innerText =
+      lang === "sq" ? "Hap në Google Maps" : "Apri su Google Maps";
+
+    document.getElementById("wa-kodra").innerText =
+    document.getElementById("wa-yjet").innerText =
+      lang === "sq" ? "Kontakto në WhatsApp" : "Contatta su WhatsApp";
+
+    document.getElementById("main-wa").innerText =
+      lang === "sq" ? "Na shkruani në WhatsApp" : "Scrivici su WhatsApp";
+
+    document.getElementById("wa-kodra").href =
+      "https://wa.me/355694650614?text=" + encodeURIComponent(msg);
+    document.getElementById("wa-yjet").href =
+      "https://wa.me/355696807777?text=" + encodeURIComponent(msg);
   }
 
   setLang("it");
@@ -254,5 +370,6 @@
 
 </body>
 </html>
+
 
 
