@@ -48,7 +48,6 @@
     }
 
     section { padding: 70px 20px; }
-
     .container { max-width: 1000px; margin: auto; }
 
     .section-title h2 {
@@ -100,25 +99,11 @@
       box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     }
 
-    .big-date {
-      font-size: 2.2rem;
-      font-weight: 600;
-    }
+    .big-date { font-size: 2.2rem; font-weight: 600; }
+    .big-time { font-size: 1.6rem; margin-top: 8px; }
+    .presso { margin: 10px 0; font-style: italic; }
 
-    .big-time {
-      font-size: 1.6rem;
-      margin-top: 8px;
-    }
-
-    .presso {
-      margin: 10px 0;
-      font-style: italic;
-    }
-
-    .countdown {
-      font-size: 1.8rem;
-      margin-top: 20px;
-    }
+    .countdown { font-size: 1.8rem; margin-top: 20px; }
 
     .whatsapp a,
     .maps-btn {
@@ -146,11 +131,6 @@
       text-align: center;
       padding: 50px 20px;
       border-top: 1px solid #eee;
-    }
-
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.5rem; }
-      section { padding: 60px 15px; }
     }
   </style>
 </head>
@@ -189,8 +169,6 @@
   </div>
 </section>
 
-<!-- CERIMONIA -->
-
 <section>
   <div class="container">
     <div class="section-title">
@@ -212,8 +190,6 @@
     </div>
   </div>
 </section>
-
-<!-- HOTEL -->
 
 <section>
   <div class="container">
@@ -251,8 +227,6 @@
   </div>
 </section>
 
-<!-- ARRIVO -->
-
 <section>
   <div class="container">
     <div class="section-title">
@@ -270,14 +244,13 @@
   </div>
 </section>
 
-<!-- RSVP -->
-
 <section>
   <div class="container" style="text-align:center;">
     <div class="section-title">
       <h2 id="rsvpTitle"></h2>
     </div>
 
+    <!-- PULSANTE SPOSTATO SOPRA IL COUNTDOWN -->
     <div class="whatsapp">
       <a id="main-wa" href="https://wa.me/393297544593" target="_blank"></a>
     </div>
@@ -330,16 +303,16 @@
 
     document.getElementById("hotelText").innerHTML =
       lang === "sq"
-        ? "Hotelet e listuara ndodhen pranë Katalea Palace.<br><br><strong>Pagesa bëhet në check-in: 30 € për natë.</strong>"
-        : "Gli alberghi sotto elencati si trovano a pochi metri dal Katalea Palace.<br><br><strong>Pagamento al check-in: 30 € a notte.</strong>";
+        ? "Hotelet e listuara ndodhen pranë Katalea Palace. Mund t’ju ndihmojmë për rezervimin e dhomave ose mund të kontaktoni direkt strukturat.<br><br><strong>Pagesa bëhet në check-in: 30 € për natë.</strong>"
+        : "Gli alberghi sotto elencati si trovano a pochi metri dal Katalea Palace. Ve li consigliamo per la comodità, ma soprattutto perché abbiamo contatti diretti con i proprietari e possiamo aiutarvi nella prenotazione delle stanze, se necessario. Qualora invece preferiste organizzarvi in autonomia, di seguito trovate i contatti di riferimento.<br><br><strong>Pagamento al check-in: 30 € a notte.</strong>";
 
     document.getElementById("arrivalTitle").innerText =
       lang === "sq" ? "Si të mbërrini" : "Come arrivare";
 
     document.getElementById("arrivalText").innerText =
       lang === "sq"
-        ? "Katalea Palace ndodhet rreth 1 orë e 30 minuta nga Aeroporti i Tiranës dhe arrihet lehtësisht me makinë. Rekomandojmë të merrni me qira një makinë me tërheqje dhe dorëzim direkt në aeroport. Parkim i madh në dispozicion."
-        : "Katalea Palace dista circa 1 ora e 30 minuti dall’Aeroporto di Tirana ed è facilmente raggiungibile in auto. Consigliamo di noleggiare un’auto con ritiro e riconsegna direttamente in aeroporto. La struttura dispone inoltre di un ampio parcheggio.";
+        ? "Katalea Palace ndodhet rreth 1 orë e 30 minuta nga Aeroporti i Tiranës dhe arrihet lehtësisht me makinë. Rekomandojmë të merrni me qira një makinë me tërheqje dhe dorëzim direkt në aeroport dhe ta rezervoni disa ditë më parë. Parkim i madh në dispozicion."
+        : "Katalea Palace dista circa 1 ora e 30 minuti dall’Aeroporto di Tirana ed è facilmente raggiungibile in auto. Per muoversi in totale comodità, consigliamo di noleggiare un’auto con ritiro e riconsegna direttamente in aeroporto e di prenotare con qualche giorno di anticipo. La struttura dispone inoltre di un ampio parcheggio.";
 
     document.getElementById("rsvpTitle").innerText =
       lang === "sq" ? "Konfirmo pjesëmarrjen tende" : "Conferma la tua presenza";
@@ -370,6 +343,3 @@
 
 </body>
 </html>
-
-
-
