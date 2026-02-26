@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Olgert & Martina - Il nostro matrimonio</title>
+  <title>Antoniomaria & Mariaelena - Il nostro matrimonio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -47,28 +47,8 @@
       font-weight: 500;
     }
 
-    /* 🎵 PULSANTE MUSICA */
-    .music-btn {
-      position: fixed;
-      top: 70px;
-      right: 20px;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: #c9a24d;
-      color: white;
-      font-size: 24px;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      z-index: 10;
-    }
-
-    .music-btn.paused {
-      background: #bbb;
-    }
-
     section { padding: 70px 20px; }
+
     .container { max-width: 1000px; margin: auto; }
 
     .section-title h2 {
@@ -120,11 +100,25 @@
       box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     }
 
-    .big-date { font-size: 2.2rem; font-weight: 600; }
-    .big-time { font-size: 1.6rem; margin-top: 8px; }
-    .presso { margin: 10px 0; font-style: italic; }
+    .big-date {
+      font-size: 2.2rem;
+      font-weight: 600;
+    }
 
-    .countdown { font-size: 1.8rem; margin-top: 20px; }
+    .big-time {
+      font-size: 1.6rem;
+      margin-top: 8px;
+    }
+
+    .presso {
+      margin: 10px 0;
+      font-style: italic;
+    }
+
+    .countdown {
+      font-size: 1.8rem;
+      margin-top: 20px;
+    }
 
     .whatsapp a,
     .maps-btn {
@@ -153,36 +147,15 @@
       padding: 50px 20px;
       border-top: 1px solid #eee;
     }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      section { padding: 60px 15px; }
+    }
   </style>
 </head>
 
 <body>
-
-<!-- AUDIO -->
-<audio id="bg-music" autoplay loop muted>
-  <source src="musica1.mp3" type="audio/mpeg">
-</audio>
-
-<!-- 🎵 PULSANTE MUSICA -->
-<button id="musicBtn" class="music-btn paused" aria-label="Musica">🎵</button>
-
-<script>
-  const music = document.getElementById("bg-music");
-  const musicBtn = document.getElementById("musicBtn");
-
-  music.volume = 0.25;
-
-  musicBtn.addEventListener("click", () => {
-    if (music.muted || music.paused) {
-      music.muted = false;
-      music.play();
-      musicBtn.classList.remove("paused");
-    } else {
-      music.pause();
-      musicBtn.classList.add("paused");
-    }
-  });
-</script>
 
 <div class="lang">
   <button onclick="setLang('it')">IT</button>
@@ -190,12 +163,15 @@
 </div>
 
 <header>
-  <h1>Olgert & Martina</h1>
+  <h1>Antoniomaria & Mariaelena</h1>
 </header>
 
 <section>
   <div class="container">
-    <p id="intro" class="intro-text"></p>
+    <p id="intro" class="intro-text">
+      Con grande gioia vi invitiamo a condividere con noi
+      il giorno più importante della nostra vita.
+    </p>
     <div class="gold-line"></div>
     <div class="story">
       <img src="foto1.jpg">
@@ -206,19 +182,16 @@
 <section>
   <div class="container">
     <div class="section-title">
-      <h2 id="ceremonyTitle"></h2>
+      <h2 id="ceremonyTitle">Cerimonia & Ricevimento</h2>
     </div>
 
     <div class="hotels">
       <div class="card">
-        <h3 id="ceremonyLabel"></h3>
-        <div id="ceremonyDate" class="big-date"></div>
-        <div id="ceremonyTime" class="big-time"></div>
-        <div id="pressoText" class="presso"></div>
+        <h3 id="ceremonyLabel">La cerimonia si terrà</h3>
+        <div id="ceremonyDate" class="big-date">Sabato 25 Aprile</div>
+        <div id="ceremonyTime" class="big-time">Ore 11:00</div>
+        <div id="pressoText" class="presso">presso</div>
         <div class="big-date">KATALEA PALACE</div>
-
-        <!-- ✅ AGGIUNTA CALENDARIO -->
-        <a id="calendarBtn" class="maps-btn" download="Matrimonio_Olgert_Martina.ics"></a>
       </div>
 
       <div class="card hotel">
@@ -231,34 +204,25 @@
 <section>
   <div class="container">
     <div class="section-title">
-      <h2 id="hotelTitle"></h2>
+      <h2 id="hotelTitle">Strutture consigliate per alloggiare</h2>
     </div>
 
-    <p id="hotelText" class="intro-text"></p>
+    <p id="hotelText" class="intro-text">
+      Gli alberghi sotto elencati si trovano a pochi metri dal Katalea Palace.
+      Per chi fosse interessato a prenotare è sufficiente scriverci indicando
+      numero di stanze e notti.<br><br>
+      Pagamento al check-in: <strong>30 € a notte</strong>.
+    </p>
 
     <div class="hotels">
       <div class="card hotel">
         <h3>Kodra e Gjelbër</h3>
         <img src="foto3.jpg">
-
-        <a id="maps-kodra" class="maps-btn" target="_blank"
-           href="https://www.google.com/maps/search/?api=1&query=40.69649249157289,19.53384840975468"></a>
-
-        <div class="whatsapp">
-          <a id="wa-kodra" target="_blank"></a>
-        </div>
       </div>
 
       <div class="card hotel">
         <h3>Yjet Resort</h3>
         <img src="foto4.jpg">
-
-        <a id="maps-yjet" class="maps-btn" target="_blank"
-           href="https://www.google.com/maps/search/?api=1&query=40.695331115336494,19.529534626706052"></a>
-
-        <div class="whatsapp">
-          <a id="wa-yjet" target="_blank"></a>
-        </div>
       </div>
     </div>
   </div>
@@ -267,16 +231,25 @@
 <section>
   <div class="container">
     <div class="section-title">
-      <h2 id="arrivalTitle"></h2>
+      <h2 id="arrivalTitle">Come arrivare</h2>
     </div>
 
-    <p id="arrivalText" class="intro-text"></p>
+    <p id="arrivalText" class="intro-text">
+    Katalea Palace dista circa 1 ora e 10 minuti dall’Aeroporto di Tirana ed è facilmente raggiungibile in auto lungo la strada E853.
+    La struttura dispone di un ampio parcheggio.
+    </p>
 
-    <iframe src="https://www.google.com/maps?q=40.696138065699465,19.532816837859283&output=embed"></iframe>
+    <iframe
+      src="https://www.google.com/maps?q=40.696138065699465,19.532816837859283&output=embed"
+      loading="lazy">
+    </iframe>
 
     <div style="text-align:center;">
-      <a id="maps-palace" class="maps-btn" target="_blank"
-         href="https://www.google.com/maps/search/?api=1&query=40.696138065699465,19.532816837859283"></a>
+      <a class="maps-btn"
+         href="https://www.google.com/maps/search/?api=1&query=40.696138065699465,19.532816837859283"
+         target="_blank">
+        Apri su Google Maps
+      </a>
     </div>
   </div>
 </section>
@@ -284,131 +257,81 @@
 <section>
   <div class="container" style="text-align:center;">
     <div class="section-title">
-      <h2 id="rsvpTitle"></h2>
-    </div>
-
-    <div class="whatsapp">
-      <a id="main-wa" href="https://wa.me/393297544593" target="_blank"></a>
+      <h2 id="rsvpTitle">Conferma presenza</h2>
     </div>
 
     <div id="countdown" class="countdown"></div>
+
+    <div class="whatsapp">
+      <a href="https://wa.me/393297544593" target="_blank">
+        Scrivici su WhatsApp
+      </a>
+    </div>
   </div>
 </section>
 
 <footer>
-  <p id="footerText"></p>
+  <p id="footerText">Con amore, Antoniomaria & Mariaelena</p>
 </footer>
 
 <script>
   const weddingDate = new Date("2026-04-25T11:00:00");
 
-  function updateCountdown(lang) {
-    const days = Math.ceil((weddingDate - new Date()) / (1000 * 60 * 60 * 24));
-    document.getElementById("countdown").innerHTML =
-      lang === 'sq'
-        ? "<strong>" + days + "</strong><br>ditë deri në po-në tonë"
-        : "<strong>" + days + "</strong><br>giorni al nostro sì";
+  function updateCountdown(lang = 'it') {
+    const now = new Date();
+    const diff = weddingDate - now;
+    const el = document.getElementById("countdown");
+
+    if (diff <= 0) {
+      el.innerHTML = lang === 'sq'
+        ? "Është dita e po-së sonë 💍"
+        : "È arrivato il giorno del nostro sì 💍";
+      return;
+    }
+
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    el.innerHTML = lang === 'sq'
+      ? "<strong>" + days + "</strong><br>ditë deri në po-në tonë"
+      : "<strong>" + days + "</strong><br>giorni al nostro sì";
   }
 
-  /* ✅ AGGIUNTA CALENDARIO */
-  function generateICS(lang) {
-    const title =
-      lang === "sq"
-        ? "Dasma e Olgert & Martina"
-        : "Matrimonio Olgert & Martina";
-
-    const description =
-      lang === "sq"
-        ? "Ceremonia dhe dreka në Katalea Palace"
-        : "Cerimonia e ricevimento presso Katalea Palace";
-
-    const ics =
-`BEGIN:VCALENDAR
-VERSION:2.0
-BEGIN:VEVENT
-SUMMARY:${title}
-DESCRIPTION:${description}
-LOCATION:Katalea Palace, Albania
-DTSTART:20260425T090000Z
-DTEND:20260425T150000Z
-END:VEVENT
-END:VCALENDAR`;
-
-    document.getElementById("calendarBtn").href =
-      URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
-  }
+  updateCountdown();
 
   function setLang(lang) {
     updateCountdown(lang);
 
-    const msg =
-      lang === "sq"
-        ? "Përshëndetje, do të dëshironim informacion për rezervimin e dhomave për dasmën e Olgert & Martina."
-        : "Ciao, vorremmo informazioni per la prenotazione delle stanze in occasione del matrimonio di Olgert & Martina.";
-
-    document.getElementById("intro").innerText =
-      lang === "sq"
-        ? "Me shumë gëzim ju ftojmë të ndani me ne ditën më të rëndësishme të jetës sonë."
-        : "Con grande gioia vi invitiamo a condividere con noi il giorno più importante della nostra vita.";
-
-    document.getElementById("ceremonyTitle").innerText =
-      lang === "sq" ? "Ceremonia & Dreka" : "Cerimonia & Ricevimento";
-    document.getElementById("ceremonyLabel").innerText =
-      lang === "sq" ? "Ceremonia do të zhvillohet" : "La cerimonia si terrà";
-    document.getElementById("ceremonyDate").innerText =
-      lang === "sq" ? "E shtunë, 25 Prill" : "Sabato 25 Aprile";
-    document.getElementById("ceremonyTime").innerText =
-      lang === "sq" ? "Ora 11:00" : "Ore 11:00";
-    document.getElementById("pressoText").innerText =
-      lang === "sq" ? "tek" : "presso";
-
-    document.getElementById("hotelTitle").innerText =
-      lang === "sq" ? "Struktura të rekomanduara për qëndrim" : "Strutture consigliate per alloggiare";
-
-    document.getElementById("hotelText").innerHTML =
-      lang === "sq"
-        ? "Hotelet e listuara ndodhen pranë Katalea Palace. Mund t’ju ndihmojmë për rezervimin e dhomave ose mund të kontaktoni direkt strukturat.<br><br><strong>Pagesa bëhet në check-in: 30 € për natë.</strong>"
-        : "Gli alberghi sotto elencati si trovano a pochi metri dal Katalea Palace. Ve li consigliamo per la comodità, ma soprattutto perché abbiamo contatti diretti con i proprietari e possiamo aiutarvi nella prenotazione delle stanze, se necessario. Qualora invece preferiste organizzarvi in autonomia, di seguito trovate i contatti di riferimento.<br><br><strong>Pagamento al check-in: 30 € a notte.</strong>";
-
-    document.getElementById("arrivalTitle").innerText =
-      lang === "sq" ? "Si të mbërrini" : "Come arrivare";
-
-    document.getElementById("arrivalText").innerText =
-      lang === "sq"
-        ? "Katalea Palace ndodhet rreth 1 orë e 30 minuta nga Aeroporti i Tiranës dhe arrihet lehtësisht me makinë. Për të lëvizur me komoditet të plotë, rekomandojmë të merrni me qira një makinë me marrje dhe dorëzim direkt në aeroport dhe ta rezervoni disa ditë më parë. Struktura disponon gjithashtu një parkim të madh."
-        : "Katalea Palace dista circa 1 ora e 30 minuti dall’Aeroporto di Tirana ed è facilmente raggiungibile in auto. Per muoversi in totale comodità, consigliamo di noleggiare un’auto con ritiro e riconsegna direttamente in aeroporto e di prenotare con qualche giorno di anticipo. La struttura dispone inoltre di un ampio parcheggio.";
-
-    document.getElementById("rsvpTitle").innerText =
-      lang === "sq" ? "Konfirmo pjesëmarrjen tende" : "Conferma la tua presenza";
-
-    document.getElementById("footerText").innerText =
-      lang === "sq" ? "Me dashuri, Olgert & Martina" : "Con amore, Olgert & Martina";
-
-    document.getElementById("maps-kodra").innerText =
-    document.getElementById("maps-yjet").innerText =
-    document.getElementById("maps-palace").innerText =
-      lang === "sq" ? "Hap në Google Maps" : "Apri su Google Maps";
-
-    document.getElementById("wa-kodra").innerText =
-    document.getElementById("wa-yjet").innerText =
-      lang === "sq" ? "Kontakto në WhatsApp" : "Contatta su WhatsApp";
-
-    document.getElementById("main-wa").innerText =
-      lang === "sq" ? "Na shkruani në WhatsApp" : "Scrivici su WhatsApp";
-
-    document.getElementById("wa-kodra").href =
-      "https://wa.me/355694650614?text=" + encodeURIComponent(msg);
-    document.getElementById("wa-yjet").href =
-      "https://wa.me/355696807777?text=" + encodeURIComponent(msg);
-
-    /* ✅ AGGIUNTA CALENDARIO */
-    document.getElementById("calendarBtn").innerText =
-      lang === "sq" ? "Shto në kalendar" : "Aggiungi al calendario";
-
-    generateICS(lang);
+    if (lang === "sq") {
+      document.getElementById("intro").innerText =
+        "Me shumë gëzim ju ftojmë të ndani me ne ditën më të rëndësishme të jetës sonë.";
+      document.getElementById("ceremonyTitle").innerText =
+        "Ceremonia & Dreka";
+      document.getElementById("ceremonyLabel").innerText =
+        "Ceremonia do të zhvillohet";
+      document.getElementById("ceremonyDate").innerText =
+        "E shtunë, 25 Prill";
+      document.getElementById("ceremonyTime").innerText =
+        "Ora 11:00";
+      document.getElementById("pressoText").innerText =
+        "tek";
+      document.getElementById("hotelTitle").innerText =
+        "Struktura të rekomanduara për qëndrim";
+      document.getElementById("hotelText").innerHTML =
+        "Hotelet e listuara ndodhen pranë Katalea Palace.<br>" +
+        "Për rezervim mjafton të na shkruani duke treguar " +
+        "numrin e dhomave dhe netëve.<br><br>" +
+        "<strong>Pagesa bëhet në check-in – 30 € për natë.</strong>";
+      document.getElementById("arrivalTitle").innerText =
+        "Si të mbërrini";
+      document.getElementById("arrivalText").innerText =
+        "Katalea Palace ndodhet në Qafa e Koshovices.";
+      document.getElementById("rsvpTitle").innerText =
+        "Konfirmo pjesëmarrjen";
+      document.getElementById("footerText").innerText =
+        "Me dashuri, Antoniomaria & Mariaelena";
+    } else {
+      location.reload();
+    }
   }
-
-  setLang("it");
 </script>
 
 </body>
