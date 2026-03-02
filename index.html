@@ -1,354 +1,235 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Olgert & Martina - Il nostro matrimonio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olgert & Martina - Il nostro matrimonio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <style>
-    * { box-sizing: border-box; }
+<style>
+* { box-sizing: border-box; }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #ffffff;
-      color: #c9a24d;
-      font-family: 'Montserrat', sans-serif;
-    }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #c9a24d;
+  font-family: 'Montserrat', sans-serif;
+}
 
-    header {
-      padding: 80px 20px 40px;
-      text-align: center;
-    }
+header {
+  padding: 80px 20px 40px;
+  text-align: center;
+}
 
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      margin: 0;
-    }
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin: 0;
+}
 
-    .lang {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 10;
-    }
+.lang {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
 
-    .lang button {
-      margin-left: 5px;
-      padding: 6px 12px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      background: #c9a24d;
-      color: white;
-      font-weight: 500;
-    }
+.lang button, .music-btn {
+  margin-left: 5px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #c9a24d;
+  color: white;
+  font-weight: 500;
+}
 
-    section { padding: 70px 20px; }
+.music-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
 
-    .container { max-width: 1000px; margin: auto; }
+section { padding: 70px 20px; }
 
-    .section-title h2 {
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      margin-bottom: 25px;
-    }
+.container { max-width: 1000px; margin: auto; }
 
-    .intro-text {
-      text-align: center;
-      font-style: italic;
-      max-width: 750px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-    }
+.section-title h2 {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  margin-bottom: 25px;
+}
 
-    .gold-line {
-      width: 70px;
-      height: 2px;
-      background: #c9a24d;
-      margin: 0 auto 35px;
-    }
+.intro-text {
+  text-align: center;
+  font-style: italic;
+  max-width: 750px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
 
-    .story img,
-    .hotel img {
-      width: 100%;
-      max-width: 420px;
-      max-height: 520px;
-      object-fit: cover;
-      margin: auto;
-      display: block;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
+.gold-line {
+  width: 70px;
+  height: 2px;
+  background: #c9a24d;
+  margin: 0 auto 35px;
+}
 
-    .hotels {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      margin-top: 40px;
-    }
+.story img,
+.hotel img {
+  width: 100%;
+  max-width: 420px;
+  max-height: 520px;
+  object-fit: cover;
+  margin: auto;
+  display: block;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
 
-    .card {
-      background: #ffffff;
-      padding: 35px;
-      border-radius: 18px;
-      text-align: center;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    }
+.hotels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
 
-    .big-date {
-      font-size: 2.2rem;
-      font-weight: 600;
-    }
+.card {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
 
-    .big-time {
-      font-size: 1.6rem;
-      margin-top: 8px;
-    }
+input, select, textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
 
-    .presso {
-      margin: 10px 0;
-      font-style: italic;
-    }
+.maps-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1.05rem;
+  color: white;
+  background: #c9a24d;
+  cursor: pointer;
+}
 
-    .countdown {
-      font-size: 1.8rem;
-      margin-top: 20px;
-    }
+footer {
+  text-align: center;
+  padding: 50px 20px;
+  border-top: 1px solid #eee;
+}
 
-    .whatsapp a,
-    .maps-btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 32px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 1.05rem;
-      color: white;
-    }
-
-    .whatsapp a { background: #25D366; }
-    .maps-btn { background: #c9a24d; }
-
-    iframe {
-      width: 100%;
-      height: 420px;
-      border: 0;
-      border-radius: 18px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    }
-
-    footer {
-      text-align: center;
-      padding: 50px 20px;
-      border-top: 1px solid #eee;
-    }
-
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.5rem; }
-      section { padding: 60px 15px; }
-    }
-  </style>
+@media (max-width: 768px) {
+  header h1 { font-size: 2.5rem; }
+}
+</style>
 </head>
 
 <body>
+
+<button class="music-btn" onclick="toggleMusic()">🎵 Musica</button>
 
 <div class="lang">
   <button onclick="setLang('it')">IT</button>
   <button onclick="setLang('sq')">AL</button>
 </div>
 
+<audio id="bgMusic" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
 <header>
   <h1>Olgert & Martina</h1>
 </header>
 
 <section>
-  <div class="container">
-    <p id="intro" class="intro-text">
-      Con grande gioia vi invitiamo a condividere con noi
-      il giorno più importante della nostra vita.
-    </p>
-    <div class="gold-line"></div>
-    <div class="story">
-      <img src="foto1.jpg">
-    </div>
-  </div>
-</section>
+<div class="container" style="text-align:center; max-width:600px;">
+<div class="section-title">
+<h2>Conferma presenza</h2>
+</div>
 
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2 id="ceremonyTitle">Cerimonia & Ricevimento</h2>
-    </div>
+<input type="text" id="guestName" placeholder="Nome e Cognome">
+<input type="number" id="guestCount" placeholder="Numero persone" min="1">
 
-    <div class="hotels">
-      <div class="card">
-        <h3 id="ceremonyLabel">La cerimonia si terrà</h3>
-        <div id="ceremonyDate" class="big-date">Sabato 25 Aprile</div>
-        <div id="ceremonyTime" class="big-time">Ore 11:00</div>
-        <div id="pressoText" class="presso">presso</div>
-        <div class="big-date">KATALEA PALACE</div>
-      </div>
+<select id="menuSelect">
+<option value="">Preferenze alimentari</option>
+<option value="Nessuna">Nessuna</option>
+<option value="Vegetariano">Vegetariano</option>
+<option value="Vegano">Vegano</option>
+<option value="Allergie / Intolleranze">Allergie / Intolleranze</option>
+</select>
 
-      <div class="card hotel">
-        <img src="foto5.jpg">
-      </div>
-    </div>
-  </div>
-</section>
+<textarea id="menuNote" placeholder="Specifica eventuali allergie..." style="display:none;"></textarea>
 
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2 id="hotelTitle">Strutture consigliate per alloggiare</h2>
-    </div>
+<div>
+<a class="maps-btn" onclick="sendRSVP()">Invia conferma</a>
+</div>
 
-    <p id="hotelText" class="intro-text">
-      Gli alberghi sotto elencati si trovano a pochi metri dal Katalea Palace.
-      Per chi fosse interessato a prenotare è sufficiente scriverci indicando
-      numero di stanze e notti.<br><br>
-      Pagamento al check-in: <strong>30 € a notte</strong>.
-    </p>
-
-    <div class="hotels">
-      <div class="card hotel">
-        <h3>Kodra e Gjelbër</h3>
-        <img src="foto3.jpg">
-      </div>
-
-      <div class="card hotel">
-        <h3>Yjet Resort</h3>
-        <img src="foto4.jpg">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2 id="arrivalTitle">Come arrivare</h2>
-    </div>
-
-    <p id="arrivalText" class="intro-text">
-    Katalea Palace dista circa 1 ora e 10 minuti dall’Aeroporto di Tirana.
-    </p>
-
-    <iframe
-      src="https://www.google.com/maps?q=40.696138065699465,19.532816837859283&output=embed"
-      loading="lazy">
-    </iframe>
-
-    <div style="text-align:center;">
-      <a class="maps-btn"
-         href="https://www.google.com/maps/search/?api=1&query=40.696138065699465,19.532816837859283"
-         target="_blank">
-        Apri su Google Maps
-      </a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container" style="text-align:center;">
-    <div class="section-title">
-      <h2 id="rsvpTitle">Conferma presenza</h2>
-    </div>
-
-    <div id="countdown" class="countdown"></div>
-
-    <div class="whatsapp">
-      <a href="https://wa.me/393297544593" target="_blank">
-        Scrivici su WhatsApp
-      </a>
-    </div>
-
-    <!-- MENU -->
-    <div style="margin-top:50px; max-width:600px; margin-left:auto; margin-right:auto;">
-      <h3 id="menuTitle" style="font-family:'Playfair Display', serif; font-size:1.6rem;">
-        Preferenze alimentari
-      </h3>
-
-      <p id="menuDesc" style="margin-bottom:20px;">
-        Se hai esigenze particolari, seleziona un'opzione:
-      </p>
-
-      <select id="menuSelect" style="width:100%; padding:14px; border-radius:10px; border:1px solid #ddd; font-size:1rem; margin-bottom:20px;">
-        <option value="">-- Seleziona --</option>
-        <option value="Vegetariano">Vegetariano</option>
-        <option value="Vegano">Vegano</option>
-        <option value="Allergie / Intolleranze">Allergie / Intolleranze</option>
-      </select>
-
-      <textarea id="menuNote" placeholder="Specifica eventuali allergie..."
-        style="width:100%; padding:14px; border-radius:10px; border:1px solid #ddd; font-size:1rem; min-height:90px; display:none;"></textarea>
-
-      <div>
-        <a id="sendMenuBtn" class="maps-btn" style="cursor:pointer;">
-          Invia preferenza
-        </a>
-      </div>
-    </div>
-
-  </div>
+</div>
 </section>
 
 <footer>
-  <p id="footerText">Con amore, Olgert & Martina</p>
+<p>Con amore, Olgert & Martina</p>
 </footer>
 
 <script>
-  const weddingDate = new Date("2026-04-25T11:00:00");
+const music = document.getElementById("bgMusic");
 
-  function updateCountdown(lang = 'it') {
-    const now = new Date();
-    const diff = weddingDate - now;
-    const el = document.getElementById("countdown");
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+  } else {
+    music.pause();
+  }
+}
 
-    if (diff <= 0) {
-      el.innerHTML = "È arrivato il giorno del nostro sì 💍";
-      return;
-    }
+document.getElementById("menuSelect").addEventListener("change", function() {
+  document.getElementById("menuNote").style.display =
+    this.value === "Allergie / Intolleranze" ? "block" : "none";
+});
 
-    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-    el.innerHTML = "<strong>" + days + "</strong><br>giorni al nostro sì";
+function sendRSVP() {
+  const nome = document.getElementById("guestName").value;
+  const persone = document.getElementById("guestCount").value;
+  const menu = document.getElementById("menuSelect").value;
+  const note = document.getElementById("menuNote").value;
+
+  if (!nome || !persone) {
+    alert("Compila nome e numero persone.");
+    return;
   }
 
-  updateCountdown();
+  let msg = "Ciao Olgert & Martina 💛\n\n";
+  msg += "Conferma presenza matrimonio 25 Aprile\n\n";
+  msg += "Nome: " + nome + "\n";
+  msg += "Numero persone: " + persone + "\n";
+  msg += "Menu: " + (menu || "Nessuna preferenza");
 
-  document.getElementById("menuSelect").addEventListener("change", function() {
-    const note = document.getElementById("menuNote");
-    note.style.display = this.value === "Allergie / Intolleranze" ? "block" : "none";
-  });
-
-  document.getElementById("sendMenuBtn").addEventListener("click", function() {
-    const scelta = document.getElementById("menuSelect").value;
-    const note = document.getElementById("menuNote").value;
-
-    if (!scelta) {
-      alert("Seleziona un'opzione prima di inviare.");
-      return;
-    }
-
-    let messaggio = "Ciao Olgert & Martina 💛\n";
-    messaggio += "Per il matrimonio del 25 Aprile:\n";
-    messaggio += "Preferenza alimentare: " + scelta;
-
-    if (note && scelta === "Allergie / Intolleranze") {
-      messaggio += "\nDettagli: " + note;
-    }
-
-    const url = "https://wa.me/393297544593?text=" + encodeURIComponent(messaggio);
-    window.open(url, "_blank");
-  });
-
-  function setLang(lang){
-    location.reload();
+  if (menu === "Allergie / Intolleranze" && note) {
+    msg += "\nDettagli allergie: " + note;
   }
+
+  const url = "https://wa.me/393297544593?text=" + encodeURIComponent(msg);
+  window.open(url, "_blank");
+}
+
+function setLang(lang){
+  location.reload();
+}
 </script>
 
 </body>
