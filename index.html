@@ -36,8 +36,7 @@ header h1 {
   z-index: 10;
 }
 
-.lang button,
-.music-btn {
+.lang button {
   margin-left: 5px;
   padding: 6px 12px;
   border: none;
@@ -48,14 +47,28 @@ header h1 {
   font-weight: 500;
 }
 
+/* 🎵 PULSANTE MUSICA */
 .music-btn {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 70px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #c9a24d;
+  color: white;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.music-btn.paused {
+  background: #bbb;
 }
 
 section { padding: 70px 20px; }
-
 .container { max-width: 1000px; margin: auto; }
 
 .section-title h2 {
@@ -107,35 +120,21 @@ section { padding: 70px 20px; }
   box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
 
-.big-date {
-  font-size: 2.2rem;
-  font-weight: 600;
-}
-
-.big-time {
-  font-size: 1.6rem;
-  margin-top: 8px;
-}
-
-.presso {
-  margin: 10px 0;
-  font-style: italic;
-}
-
-.countdown {
-  font-size: 1.8rem;
-  margin-top: 20px;
-}
+.big-date { font-size: 2.2rem; font-weight: 600; }
+.big-time { font-size: 1.6rem; margin-top: 8px; }
+.presso { margin: 10px 0; font-style: italic; }
+.countdown { font-size: 1.8rem; margin-top: 20px; }
 
 input, select, textarea {
-  width: 100%;
-  padding: 14px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
-  margin-bottom: 15px;
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #ddd;
+  font-size:1rem;
+  margin-bottom:15px;
 }
 
+.whatsapp a,
 .maps-btn {
   display: inline-block;
   margin-top: 20px;
@@ -144,11 +143,10 @@ input, select, textarea {
   text-decoration: none;
   font-size: 1.05rem;
   color: white;
-  background: #c9a24d;
-  cursor: pointer;
 }
 
 .whatsapp a { background: #25D366; }
+.maps-btn { background: #c9a24d; }
 
 iframe {
   width: 100%;
@@ -163,95 +161,53 @@ footer {
   padding: 50px 20px;
   border-top: 1px solid #eee;
 }
-
-@media (max-width: 768px) {
-  header h1 { font-size: 2.5rem; }
-}
 </style>
 </head>
 
 <body>
 
-<button class="music-btn" onclick="toggleMusic()">🎵 Musica</button>
+<!-- AUDIO -->
+<audio id="bg-music" autoplay loop muted>
+  <source src="musica1.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" class="music-btn paused">🎵</button>
+
+<script>
+const music = document.getElementById("bg-music");
+const musicBtn = document.getElementById("musicBtn");
+music.volume = 0.25;
+
+musicBtn.addEventListener("click", () => {
+  if (music.muted || music.paused) {
+    music.muted = false;
+    music.play();
+    musicBtn.classList.remove("paused");
+  } else {
+    music.pause();
+    musicBtn.classList.add("paused");
+  }
+});
+</script>
 
 <div class="lang">
   <button onclick="setLang('it')">IT</button>
   <button onclick="setLang('sq')">AL</button>
 </div>
 
-<audio id="bgMusic" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
-
 <header>
   <h1>Olgert & Martina</h1>
 </header>
 
-<!-- INTRO -->
-<section>
-  <div class="container">
-    <p id="intro" class="intro-text">
-      Con grande gioia vi invitiamo a condividere con noi il giorno più importante della nostra vita.
-    </p>
-    <div class="gold-line"></div>
-    <div class="story">
-      <img src="foto1.jpg">
-    </div>
-  </div>
-</section>
-
-<!-- CERIMONIA -->
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2 id="ceremonyTitle">Cerimonia & Ricevimento</h2>
-    </div>
-
-    <div class="hotels">
-      <div class="card">
-        <h3>La cerimonia si terrà</h3>
-        <div class="big-date">Sabato 25 Aprile 2026</div>
-        <div class="big-time">Ore 11:00</div>
-        <div class="presso">presso</div>
-        <div class="big-date">KATALEA PALACE</div>
-      </div>
-
-      <div class="card hotel">
-        <img src="foto5.jpg">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ARRIVO -->
-<section>
-  <div class="container">
-    <div class="section-title">
-      <h2>Come arrivare</h2>
-    </div>
-
-    <p class="intro-text">
-      Katalea Palace dista circa 1 ora e 10 minuti dall’Aeroporto di Tirana.
-    </p>
-
-    <iframe
-      src="https://www.google.com/maps?q=40.696138065699465,19.532816837859283&output=embed"
-      loading="lazy">
-    </iframe>
-  </div>
-</section>
-
-<!-- RSVP -->
+<!-- RSVP SECTION AGGIORNATA -->
 <section>
 <div class="container" style="max-width:600px; text-align:center;">
 <div class="section-title">
-<h2>Conferma presenza</h2>
+<h2 id="rsvpTitle"></h2>
 </div>
 
-<div id="countdown" class="countdown"></div>
-
-<input type="text" id="guestName" placeholder="Nome e Cognome">
-<input type="number" id="guestCount" placeholder="Numero persone" min="1">
+<input type="text" id="guestName">
+<input type="number" id="guestCount" min="1">
 
 <select id="menuSelect">
 <option value="">Preferenze alimentari</option>
@@ -261,74 +217,77 @@ footer {
 <option value="Allergie / Intolleranze">Allergie / Intolleranze</option>
 </select>
 
-<textarea id="menuNote" placeholder="Specifica eventuali allergie..." style="display:none;"></textarea>
+<textarea id="menuNote" style="display:none;"></textarea>
 
-<a class="maps-btn" onclick="sendRSVP()">Invia conferma</a>
+<a class="maps-btn" onclick="sendRSVP()" id="sendBtn"></a>
 
+<div id="countdown" class="countdown"></div>
 </div>
 </section>
 
 <footer>
-<p>Con amore, Olgert & Martina</p>
+<p id="footerText"></p>
 </footer>
 
 <script>
 const weddingDate = new Date("2026-04-25T11:00:00");
-const music = document.getElementById("bgMusic");
 
-function toggleMusic() {
-  music.paused ? music.play() : music.pause();
+function updateCountdown(lang){
+  const days = Math.ceil((weddingDate - new Date())/(1000*60*60*24));
+  document.getElementById("countdown").innerHTML =
+    lang==="sq"
+    ? "<strong>"+days+"</strong><br>ditë deri në po-në tonë"
+    : "<strong>"+days+"</strong><br>giorni al nostro sì";
 }
 
-function updateCountdown() {
-  const now = new Date();
-  const diff = weddingDate - now;
-  const el = document.getElementById("countdown");
-
-  if (diff <= 0) {
-    el.innerHTML = "È arrivato il giorno del nostro sì 💍";
-    return;
-  }
-
-  const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-  el.innerHTML = "<strong>" + days + "</strong><br>giorni al nostro sì";
-}
-
-updateCountdown();
-
-document.getElementById("menuSelect").addEventListener("change", function() {
+document.getElementById("menuSelect").addEventListener("change",function(){
   document.getElementById("menuNote").style.display =
-    this.value === "Allergie / Intolleranze" ? "block" : "none";
+    this.value==="Allergie / Intolleranze"?"block":"none";
 });
 
-function sendRSVP() {
-  const nome = document.getElementById("guestName").value;
-  const persone = document.getElementById("guestCount").value;
-  const menu = document.getElementById("menuSelect").value;
-  const note = document.getElementById("menuNote").value;
+function sendRSVP(){
+  const nome=document.getElementById("guestName").value;
+  const persone=document.getElementById("guestCount").value;
+  const menu=document.getElementById("menuSelect").value;
+  const note=document.getElementById("menuNote").value;
 
-  if (!nome || !persone) {
-    alert("Compila nome e numero persone.");
-    return;
+  if(!nome||!persone){alert("Compila nome e numero persone");return;}
+
+  let msg="Conferma matrimonio Olgert & Martina\n\n";
+  msg+="Nome: "+nome+"\n";
+  msg+="Numero persone: "+persone+"\n";
+  msg+="Menu: "+(menu||"Nessuna");
+
+  if(menu==="Allergie / Intolleranze"&&note){
+    msg+="\nDettagli: "+note;
   }
 
-  let msg = "Ciao Olgert & Martina 💛\n\n";
-  msg += "Conferma presenza matrimonio 25 Aprile 2026\n\n";
-  msg += "Nome: " + nome + "\n";
-  msg += "Numero persone: " + persone + "\n";
-  msg += "Menu: " + (menu || "Nessuna preferenza");
-
-  if (menu === "Allergie / Intolleranze" && note) {
-    msg += "\nDettagli allergie: " + note;
-  }
-
-  const url = "https://wa.me/393297544593?text=" + encodeURIComponent(msg);
-  window.open(url, "_blank");
+  window.open("https://wa.me/393297544593?text="+encodeURIComponent(msg));
 }
 
 function setLang(lang){
-  location.reload();
+  updateCountdown(lang);
+
+  document.getElementById("rsvpTitle").innerText=
+    lang==="sq"?"Konfirmo pjesëmarrjen":"Conferma la tua presenza";
+
+  document.getElementById("guestName").placeholder=
+    lang==="sq"?"Emri dhe Mbiemri":"Nome e Cognome";
+
+  document.getElementById("guestCount").placeholder=
+    lang==="sq"?"Numri i personave":"Numero persone";
+
+  document.getElementById("menuNote").placeholder=
+    lang==="sq"?"Specifiko alergjitë...":"Specifica eventuali allergie...";
+
+  document.getElementById("sendBtn").innerText=
+    lang==="sq"?"Dërgo konfirmën":"Invia conferma";
+
+  document.getElementById("footerText").innerText=
+    lang==="sq"?"Me dashuri, Olgert & Martina":"Con amore, Olgert & Martina";
 }
+
+setLang("it");
 </script>
 
 </body>
