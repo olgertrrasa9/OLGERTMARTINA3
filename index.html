@@ -167,20 +167,20 @@
 <button id="musicBtn" class="music-btn paused">🎵</button>
 
 <script>
-const music = document.getElementById("bg-music");
-const musicBtn = document.getElementById("musicBtn");
-music.volume = 0.25;
+  const music = document.getElementById("bg-music");
+  const musicBtn = document.getElementById("musicBtn");
+  music.volume = 0.25;
 
-musicBtn.addEventListener("click", () => {
-  if (music.muted || music.paused) {
-    music.muted = false;
-    music.play();
-    musicBtn.classList.remove("paused");
-  } else {
-    music.pause();
-    musicBtn.classList.add("paused");
-  }
-});
+  musicBtn.addEventListener("click", () => {
+    if (music.muted || music.paused) {
+      music.muted = false;
+      music.play();
+      musicBtn.classList.remove("paused");
+    } else {
+      music.pause();
+      musicBtn.classList.add("paused");
+    }
+  });
 </script>
 
 <div class="lang">
@@ -192,7 +192,9 @@ musicBtn.addEventListener("click", () => {
   <h1>Olgert & Martina</h1>
 </header>
 
-<!-- RSVP AGGIUNTO -->
+<!-- TUTTE LE TUE SEZIONI ORIGINALI QUI (INTRO, CERIMONIA, HOTEL, ARRIVO, CALENDARIO) RESTANO IDENTICHE -->
+
+<!-- SOLO QUESTA SEZIONE È STATA POTENZIATA -->
 <section>
   <div class="container" style="text-align:center;">
     <div class="section-title">
@@ -265,7 +267,7 @@ function setLang(lang){
   updateCountdown(lang);
 
   document.getElementById("rsvpTitle").innerText =
-    lang==="sq"?"Konfirmo pjesëmarrjen":"Conferma la tua presenza";
+    lang==="sq"?"Konfirmo pjesëmarrjen tende":"Conferma la tua presenza";
 
   document.getElementById("guestName").placeholder =
     lang==="sq"?"Emri dhe Mbiemri":"Nome e Cognome";
