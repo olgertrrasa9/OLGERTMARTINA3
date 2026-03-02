@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Antoniomaria & Mariaelena - Il nostro matrimonio</title>
+  <title>Olgert & Martina - Il nostro matrimonio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -163,7 +163,7 @@
 </div>
 
 <header>
-  <h1>Antoniomaria & Mariaelena</h1>
+  <h1>Olgert & Martina</h1>
 </header>
 
 <section>
@@ -235,8 +235,7 @@
     </div>
 
     <p id="arrivalText" class="intro-text">
-    Katalea Palace dista circa 1 ora e 10 minuti dall’Aeroporto di Tirana ed è facilmente raggiungibile in auto lungo la strada E853.
-    La struttura dispone di un ampio parcheggio.
+    Katalea Palace dista circa 1 ora e 10 minuti dall’Aeroporto di Tirana.
     </p>
 
     <iframe
@@ -267,11 +266,39 @@
         Scrivici su WhatsApp
       </a>
     </div>
+
+    <!-- MENU -->
+    <div style="margin-top:50px; max-width:600px; margin-left:auto; margin-right:auto;">
+      <h3 id="menuTitle" style="font-family:'Playfair Display', serif; font-size:1.6rem;">
+        Preferenze alimentari
+      </h3>
+
+      <p id="menuDesc" style="margin-bottom:20px;">
+        Se hai esigenze particolari, seleziona un'opzione:
+      </p>
+
+      <select id="menuSelect" style="width:100%; padding:14px; border-radius:10px; border:1px solid #ddd; font-size:1rem; margin-bottom:20px;">
+        <option value="">-- Seleziona --</option>
+        <option value="Vegetariano">Vegetariano</option>
+        <option value="Vegano">Vegano</option>
+        <option value="Allergie / Intolleranze">Allergie / Intolleranze</option>
+      </select>
+
+      <textarea id="menuNote" placeholder="Specifica eventuali allergie..."
+        style="width:100%; padding:14px; border-radius:10px; border:1px solid #ddd; font-size:1rem; min-height:90px; display:none;"></textarea>
+
+      <div>
+        <a id="sendMenuBtn" class="maps-btn" style="cursor:pointer;">
+          Invia preferenza
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <footer>
-  <p id="footerText">Con amore, Antoniomaria & Mariaelena</p>
+  <p id="footerText">Con amore, Olgert & Martina</p>
 </footer>
 
 <script>
@@ -283,54 +310,44 @@
     const el = document.getElementById("countdown");
 
     if (diff <= 0) {
-      el.innerHTML = lang === 'sq'
-        ? "Është dita e po-së sonë 💍"
-        : "È arrivato il giorno del nostro sì 💍";
+      el.innerHTML = "È arrivato il giorno del nostro sì 💍";
       return;
     }
 
     const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-    el.innerHTML = lang === 'sq'
-      ? "<strong>" + days + "</strong><br>ditë deri në po-në tonë"
-      : "<strong>" + days + "</strong><br>giorni al nostro sì";
+    el.innerHTML = "<strong>" + days + "</strong><br>giorni al nostro sì";
   }
 
   updateCountdown();
 
-  function setLang(lang) {
-    updateCountdown(lang);
+  document.getElementById("menuSelect").addEventListener("change", function() {
+    const note = document.getElementById("menuNote");
+    note.style.display = this.value === "Allergie / Intolleranze" ? "block" : "none";
+  });
 
-    if (lang === "sq") {
-      document.getElementById("intro").innerText =
-        "Me shumë gëzim ju ftojmë të ndani me ne ditën më të rëndësishme të jetës sonë.";
-      document.getElementById("ceremonyTitle").innerText =
-        "Ceremonia & Dreka";
-      document.getElementById("ceremonyLabel").innerText =
-        "Ceremonia do të zhvillohet";
-      document.getElementById("ceremonyDate").innerText =
-        "E shtunë, 25 Prill";
-      document.getElementById("ceremonyTime").innerText =
-        "Ora 11:00";
-      document.getElementById("pressoText").innerText =
-        "tek";
-      document.getElementById("hotelTitle").innerText =
-        "Struktura të rekomanduara për qëndrim";
-      document.getElementById("hotelText").innerHTML =
-        "Hotelet e listuara ndodhen pranë Katalea Palace.<br>" +
-        "Për rezervim mjafton të na shkruani duke treguar " +
-        "numrin e dhomave dhe netëve.<br><br>" +
-        "<strong>Pagesa bëhet në check-in – 30 € për natë.</strong>";
-      document.getElementById("arrivalTitle").innerText =
-        "Si të mbërrini";
-      document.getElementById("arrivalText").innerText =
-        "Katalea Palace ndodhet në Qafa e Koshovices.";
-      document.getElementById("rsvpTitle").innerText =
-        "Konfirmo pjesëmarrjen";
-      document.getElementById("footerText").innerText =
-        "Me dashuri, Antoniomaria & Mariaelena";
-    } else {
-      location.reload();
+  document.getElementById("sendMenuBtn").addEventListener("click", function() {
+    const scelta = document.getElementById("menuSelect").value;
+    const note = document.getElementById("menuNote").value;
+
+    if (!scelta) {
+      alert("Seleziona un'opzione prima di inviare.");
+      return;
     }
+
+    let messaggio = "Ciao Olgert & Martina 💛\n";
+    messaggio += "Per il matrimonio del 25 Aprile:\n";
+    messaggio += "Preferenza alimentare: " + scelta;
+
+    if (note && scelta === "Allergie / Intolleranze") {
+      messaggio += "\nDettagli: " + note;
+    }
+
+    const url = "https://wa.me/393297544593?text=" + encodeURIComponent(messaggio);
+    window.open(url, "_blank");
+  });
+
+  function setLang(lang){
+    location.reload();
   }
 </script>
 
