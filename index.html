@@ -1,172 +1,165 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Olgert & Martina - Il nostro matrimonio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olgert & Martina - Il nostro matrimonio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-<style>
-* { box-sizing: border-box; }
+  <style>
+    * { box-sizing: border-box; }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  background: #ffffff;
-  color: #c9a24d;
-  font-family: 'Montserrat', sans-serif;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #c9a24d;
+      font-family: 'Montserrat', sans-serif;
+    }
 
-header {
-  padding: 80px 20px 40px;
-  text-align: center;
-}
+    header { padding: 80px 20px 40px; text-align: center; }
 
-header h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  margin: 0;
-}
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      margin: 0;
+    }
 
-.lang {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
-}
+    .lang {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+    }
 
-.lang button {
-  margin-left: 5px;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #c9a24d;
-  color: white;
-  font-weight: 500;
-}
+    .lang button {
+      margin-left: 5px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #c9a24d;
+      color: white;
+      font-weight: 500;
+    }
 
-/* 🎵 PULSANTE MUSICA */
-.music-btn {
-  position: fixed;
-  top: 70px;
-  right: 20px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #c9a24d;
-  color: white;
-  font-size: 24px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  z-index: 10;
-}
+    .music-btn {
+      position: fixed;
+      top: 70px;
+      right: 20px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #c9a24d;
+      color: white;
+      font-size: 24px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
 
-.music-btn.paused {
-  background: #bbb;
-}
+    .music-btn.paused { background: #bbb; }
 
-section { padding: 70px 20px; }
-.container { max-width: 1000px; margin: auto; }
+    section { padding: 70px 20px; }
+    .container { max-width: 1000px; margin: auto; }
 
-.section-title h2 {
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  margin-bottom: 25px;
-}
+    .section-title h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 25px;
+    }
 
-.intro-text {
-  text-align: center;
-  font-style: italic;
-  max-width: 750px;
-  margin: 0 auto 30px;
-  line-height: 1.6;
-}
+    .intro-text {
+      text-align: center;
+      font-style: italic;
+      max-width: 750px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
 
-.gold-line {
-  width: 70px;
-  height: 2px;
-  background: #c9a24d;
-  margin: 0 auto 35px;
-}
+    .gold-line {
+      width: 70px;
+      height: 2px;
+      background: #c9a24d;
+      margin: 0 auto 35px;
+    }
 
-.story img,
-.hotel img {
-  width: 100%;
-  max-width: 420px;
-  max-height: 520px;
-  object-fit: cover;
-  margin: auto;
-  display: block;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
+    .story img,
+    .hotel img {
+      width: 100%;
+      max-width: 420px;
+      max-height: 520px;
+      object-fit: cover;
+      margin: auto;
+      display: block;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
 
-.hotels {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
-  margin-top: 40px;
-}
+    .hotels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
 
-.card {
-  background: #ffffff;
-  padding: 35px;
-  border-radius: 18px;
-  text-align: center;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
+    .card {
+      background: #ffffff;
+      padding: 35px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
 
-.big-date { font-size: 2.2rem; font-weight: 600; }
-.big-time { font-size: 1.6rem; margin-top: 8px; }
-.presso { margin: 10px 0; font-style: italic; }
-.countdown { font-size: 1.8rem; margin-top: 20px; }
+    .big-date { font-size: 2.2rem; font-weight: 600; }
+    .big-time { font-size: 1.6rem; margin-top: 8px; }
+    .presso { margin: 10px 0; font-style: italic; }
+    .countdown { font-size: 1.8rem; margin-top: 20px; }
 
-input, select, textarea {
-  width:100%;
-  padding:14px;
-  border-radius:10px;
-  border:1px solid #ddd;
-  font-size:1rem;
-  margin-bottom:15px;
-}
+    input, select, textarea {
+      width:100%;
+      padding:12px;
+      margin-bottom:12px;
+      border-radius:8px;
+      border:1px solid #ddd;
+      font-size:1rem;
+    }
 
-.whatsapp a,
-.maps-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 32px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 1.05rem;
-  color: white;
-}
+    .whatsapp a,
+    .maps-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      color: white;
+    }
 
-.whatsapp a { background: #25D366; }
-.maps-btn { background: #c9a24d; }
+    .whatsapp a { background: #25D366; }
+    .maps-btn { background: #c9a24d; }
 
-iframe {
-  width: 100%;
-  height: 420px;
-  border: 0;
-  border-radius: 18px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
+    iframe {
+      width: 100%;
+      height: 420px;
+      border: 0;
+      border-radius: 18px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
 
-footer {
-  text-align: center;
-  padding: 50px 20px;
-  border-top: 1px solid #eee;
-}
-</style>
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      border-top: 1px solid #eee;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- AUDIO -->
 <audio id="bg-music" autoplay loop muted>
   <source src="musica1.mp3" type="audio/mpeg">
 </audio>
@@ -199,67 +192,70 @@ musicBtn.addEventListener("click", () => {
   <h1>Olgert & Martina</h1>
 </header>
 
-<!-- RSVP SECTION AGGIORNATA -->
+<!-- RSVP AGGIUNTO -->
 <section>
-<div class="container" style="max-width:600px; text-align:center;">
-<div class="section-title">
-<h2 id="rsvpTitle"></h2>
-</div>
+  <div class="container" style="text-align:center;">
+    <div class="section-title">
+      <h2 id="rsvpTitle"></h2>
+    </div>
 
-<input type="text" id="guestName">
-<input type="number" id="guestCount" min="1">
+    <div style="max-width:600px;margin:0 auto;">
 
-<select id="menuSelect">
-<option value="">Preferenze alimentari</option>
-<option value="Nessuna">Nessuna</option>
-<option value="Vegetariano">Vegetariano</option>
-<option value="Vegano">Vegano</option>
-<option value="Allergie / Intolleranze">Allergie / Intolleranze</option>
-</select>
+      <input type="text" id="guestName">
+      <input type="number" id="guestCount" min="1">
 
-<textarea id="menuNote" style="display:none;"></textarea>
+      <select id="menuSelect">
+        <option value="">Preferenze alimentari</option>
+        <option value="Nessuna">Nessuna</option>
+        <option value="Vegetariano">Vegetariano</option>
+        <option value="Vegano">Vegano</option>
+        <option value="Allergie / Intolleranze">Allergie / Intolleranze</option>
+      </select>
 
-<a class="maps-btn" onclick="sendRSVP()" id="sendBtn"></a>
+      <textarea id="menuNote" style="display:none;"></textarea>
 
-<div id="countdown" class="countdown"></div>
-</div>
+      <a class="maps-btn" onclick="sendRSVP()" id="sendBtn"></a>
+    </div>
+
+    <div id="countdown" class="countdown"></div>
+  </div>
 </section>
 
 <footer>
-<p id="footerText"></p>
+  <p id="footerText"></p>
 </footer>
 
 <script>
 const weddingDate = new Date("2026-04-25T11:00:00");
 
-function updateCountdown(lang){
+function updateCountdown(lang) {
   const days = Math.ceil((weddingDate - new Date())/(1000*60*60*24));
   document.getElementById("countdown").innerHTML =
-    lang==="sq"
-    ? "<strong>"+days+"</strong><br>ditë deri në po-në tonë"
-    : "<strong>"+days+"</strong><br>giorni al nostro sì";
+    lang === 'sq'
+      ? "<strong>"+days+"</strong><br>ditë deri në po-në tonë"
+      : "<strong>"+days+"</strong><br>giorni al nostro sì";
 }
 
-document.getElementById("menuSelect").addEventListener("change",function(){
+document.getElementById("menuSelect").addEventListener("change", function(){
   document.getElementById("menuNote").style.display =
-    this.value==="Allergie / Intolleranze"?"block":"none";
+    this.value === "Allergie / Intolleranze" ? "block" : "none";
 });
 
 function sendRSVP(){
-  const nome=document.getElementById("guestName").value;
-  const persone=document.getElementById("guestCount").value;
-  const menu=document.getElementById("menuSelect").value;
-  const note=document.getElementById("menuNote").value;
+  const nome = document.getElementById("guestName").value;
+  const persone = document.getElementById("guestCount").value;
+  const menu = document.getElementById("menuSelect").value;
+  const note = document.getElementById("menuNote").value;
 
-  if(!nome||!persone){alert("Compila nome e numero persone");return;}
+  if(!nome || !persone){ alert("Compila nome e numero persone"); return; }
 
-  let msg="Conferma matrimonio Olgert & Martina\n\n";
-  msg+="Nome: "+nome+"\n";
-  msg+="Numero persone: "+persone+"\n";
-  msg+="Menu: "+(menu||"Nessuna");
+  let msg = "Conferma matrimonio Olgert & Martina\n\n";
+  msg += "Nome: "+nome+"\n";
+  msg += "Numero persone: "+persone+"\n";
+  msg += "Menu: "+(menu||"Nessuna");
 
-  if(menu==="Allergie / Intolleranze"&&note){
-    msg+="\nDettagli: "+note;
+  if(menu==="Allergie / Intolleranze" && note){
+    msg += "\nDettagli allergie: "+note;
   }
 
   window.open("https://wa.me/393297544593?text="+encodeURIComponent(msg));
@@ -268,22 +264,22 @@ function sendRSVP(){
 function setLang(lang){
   updateCountdown(lang);
 
-  document.getElementById("rsvpTitle").innerText=
+  document.getElementById("rsvpTitle").innerText =
     lang==="sq"?"Konfirmo pjesëmarrjen":"Conferma la tua presenza";
 
-  document.getElementById("guestName").placeholder=
+  document.getElementById("guestName").placeholder =
     lang==="sq"?"Emri dhe Mbiemri":"Nome e Cognome";
 
-  document.getElementById("guestCount").placeholder=
+  document.getElementById("guestCount").placeholder =
     lang==="sq"?"Numri i personave":"Numero persone";
 
-  document.getElementById("menuNote").placeholder=
+  document.getElementById("menuNote").placeholder =
     lang==="sq"?"Specifiko alergjitë...":"Specifica eventuali allergie...";
 
-  document.getElementById("sendBtn").innerText=
+  document.getElementById("sendBtn").innerText =
     lang==="sq"?"Dërgo konfirmën":"Invia conferma";
 
-  document.getElementById("footerText").innerText=
+  document.getElementById("footerText").innerText =
     lang==="sq"?"Me dashuri, Olgert & Martina":"Con amore, Olgert & Martina";
 }
 
