@@ -47,6 +47,7 @@
       font-weight: 500;
     }
 
+    /* 🎵 PULSANTE MUSICA */
     .music-btn {
       position: fixed;
       top: 70px;
@@ -122,6 +123,7 @@
     .big-date { font-size: 2.2rem; font-weight: 600; }
     .big-time { font-size: 1.6rem; margin-top: 8px; }
     .presso { margin: 10px 0; font-style: italic; }
+
     .countdown { font-size: 1.8rem; margin-top: 20px; }
 
     .whatsapp a,
@@ -156,10 +158,12 @@
 
 <body>
 
+<!-- AUDIO -->
 <audio id="bg-music" autoplay loop muted>
   <source src="musica1.mp3" type="audio/mpeg">
 </audio>
 
+<!-- 🎵 PULSANTE MUSICA -->
 <button id="musicBtn" class="music-btn paused" aria-label="Musica">🎵</button>
 
 <script>
@@ -180,9 +184,9 @@
   });
 </script>
 
-<!-- IL TUO CODICE RESTA IDENTICO FINO ALLA SEZIONE RSVP -->
+<!-- 🔽 QUI CONTINUA TUTTO IL TUO CODICE ORIGINALE IDENTICO FINO ALLA FINE -->
 
-<!-- NUOVA SEZIONE AGGIUNTA -->
+<!-- ✅ NUOVA SEZIONE AGGIUNTA PRIMA DEL FOOTER -->
 <section>
   <div class="container" style="text-align:center;">
     <div class="section-title">
@@ -198,20 +202,15 @@
         <option value="Allergia / Intolleranza">Allergia / Intolleranza</option>
       </select>
 
-      <textarea id="dietNote" placeholder="Specifica qui eventuali allergie o intolleranze..."
+      <textarea id="dietNote"
+        placeholder="Specifica eventuali allergie o intolleranze..."
         style="width:100%;padding:14px;border-radius:8px;border:1px solid #ddd;display:none;"></textarea>
 
-      <div>
-        <a class="maps-btn" onclick="sendDiet()">Invia preferenza</a>
-      </div>
+      <a class="maps-btn" onclick="sendDiet()">Invia preferenza</a>
 
     </div>
   </div>
 </section>
-
-<footer>
-  <p id="footerText"></p>
-</footer>
 
 <script>
   document.getElementById("dietSelect").addEventListener("change", function() {
@@ -228,7 +227,7 @@
       return;
     }
 
-    let msg = "Preferenza alimentare matrimonio Olgert & Martina:\n\n";
+    let msg = "Preferenza alimentare matrimonio Olgert & Martina\n\n";
     msg += "Scelta: " + scelta;
 
     if (scelta === "Allergia / Intolleranza" && nota) {
