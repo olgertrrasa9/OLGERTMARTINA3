@@ -102,6 +102,24 @@
   </div>
 </section>
 
+<!-- DIETA -->
+<section>
+  <div class="container" style="text-align:center;">
+    <div class="section-title"><h2 id="dietTitle"></h2></div>
+    <div style="max-width:600px;margin:0 auto;">
+      <select id="dietSelect" class="diet-field">
+        <option value="" id="opt-default"></option>
+        <option value="Nessuna" id="opt-none"></option>
+        <option value="Vegetariano" id="opt-veg"></option>
+        <option value="Vegano" id="opt-vegan">Vegano</option>
+        <option value="Allergia / Intolleranza" id="opt-allergy"></option>
+      </select>
+      <textarea id="dietNote" class="diet-field" placeholder="Specifica eventuali allergie o intolleranze..."></textarea>
+      <a class="maps-btn" onclick="sendDiet()" style="cursor:pointer;" id="dietSendBtn"></a>
+    </div>
+  </div>
+</section>
+
 <div style="width:70px;height:2px;background:#c9a24d;margin:0 auto;"></div>
 
 <!-- INTRO -->
@@ -161,24 +179,6 @@
     <iframe src="https://www.google.com/maps?q=40.696138065699465,19.532816837859283&output=embed" title="Katalea Palace" loading="lazy"></iframe>
     <div style="text-align:center;">
       <a id="maps-palace" class="maps-btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=40.696138065699465,19.532816837859283"></a>
-    </div>
-  </div>
-</section>
-
-<!-- DIETA -->
-<section>
-  <div class="container" style="text-align:center;">
-    <div class="section-title"><h2 id="dietTitle"></h2></div>
-    <div style="max-width:600px;margin:0 auto;">
-      <select id="dietSelect" class="diet-field">
-        <option value="" id="opt-default"></option>
-        <option value="Nessuna" id="opt-none"></option>
-        <option value="Vegetariano" id="opt-veg"></option>
-        <option value="Vegano" id="opt-vegan">Vegano</option>
-        <option value="Allergia / Intolleranza" id="opt-allergy"></option>
-      </select>
-      <textarea id="dietNote" class="diet-field" placeholder="Specifica eventuali allergie o intolleranze..."></textarea>
-      <a class="maps-btn" onclick="sendDiet()" style="cursor:pointer;" id="dietSendBtn"></a>
     </div>
   </div>
 </section>
